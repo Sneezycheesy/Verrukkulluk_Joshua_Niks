@@ -1,13 +1,13 @@
 <?php
     class database {
-        private $db;
+        private $dbc;
 
         public function __construct() {
-            $this->db = mysqli_connect('localhost', 'Joshii', 'thispasswordisuseless', 'Verrukkulluk_db') or die(mysqli_connect_error());
+            $this->dbc = mysqli_connect('localhost', 'Joshii', 'thispasswordisuseless', 'Verrukkulluk_db') or die(mysqli_connect_error());
         }
 
         public function GetDatabaseConnection() {
-            return $this->db;
+            return $this->dbc;
         }
 
     }
