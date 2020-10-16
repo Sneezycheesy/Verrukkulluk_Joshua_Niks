@@ -7,6 +7,19 @@
             $this->dbc = $connection;
         }
 
+        public function AddFavourite($dish_id, $user_id) {
+            $return_value = false;
+
+            $sql = "INSERT INTO DISH_INFO (record_type,dish_id,user_id,date) VALUES ('favourite','$dish_id','$user_id',NOW())";
+            $result = mysqli_query($this->dbc, $sql);
+
+            if(mysqli_affected_rows($this->dbc)) {
+                $return_value = !$return_value;
+            }
+
+            return $return_value;
+        }
+
         public function SelectDishInfo($record_type) {
             $dish_info = false;
 

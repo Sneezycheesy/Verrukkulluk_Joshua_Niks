@@ -22,6 +22,8 @@
     echo "<pre>";
     var_dump($dish_info->SelectDishInfo('comment'));
 
+    $dish_info->AddFavourite(2, 2);
+
     // $food_item = new FoodItem($dbc);
 
 
