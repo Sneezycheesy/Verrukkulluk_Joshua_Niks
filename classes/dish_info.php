@@ -15,25 +15,19 @@
 
             if($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<pre> Row:";
-                    var_dump($row["ID"]);
 
-                    $dish_info[] = $row;
-
-                    echo "<pre> DishInfo:";
-                    var_dump($dish_info);
-
-                    if($record_type == "comment" || $record_type == "favourite") {
+                    if ($record_type == 'comment' || $record_type == 'favourite') {
                         $user_id = $row['user_id'];
-                        $sql = "SELECT * FROM USER WHERE ID = $user_id";
-                        $result = mysqli_query($this->dbc, $sql);
-    
-                        if($result->num_rows > 1) {
-                            while($value = $result->fetch_assoc()) {
-                                $row[5] = $value;
+                        $sqli = "SELECT * FROM USER WHERE ID = $user_id";
+                        $rslt = mysqli_query($this->dbc, $sqli);
+
+                        if($rslt->num_rows > 0) {
+                            while($user_row = $rslt->fetch_array(MYSQLI_ASSOC)) {
+                                $row['user'] = $user_row;
                             }
                         }
                     }
+                    $dish_info[] = $row;
                 }
             }
 
