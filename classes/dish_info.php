@@ -28,16 +28,15 @@
         }
 
         public function ToggleFavourite($dish_id, $user_id) {
-            $return_value = false;
 
             $sql = "SELECT * FROM DISH_INFO WHERE dish_id = $dish_id AND user_id = $user_id";
             $result = mysqli_query($this->dbc, $sql);
 
             if($result->num_rows == 1) {
-                $this->RemoveFavourite($dish_id, $user_id);
+                return $this->RemoveFavourite($dish_id, $user_id);
             }
             else {
-                $this->AddFavourite($dish_id, $user_id);
+                return $this->AddFavourite($dish_id, $user_id);
             }
         }
 

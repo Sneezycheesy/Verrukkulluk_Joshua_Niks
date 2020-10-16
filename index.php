@@ -22,23 +22,5 @@
     echo "<pre>";
     var_dump($dish_info->SelectDishInfo('comment'));
 
-    // $food_item = new FoodItem($dbc);
-
-
-
-        // for($i = 1; $i < 101; $i++) {
-
-        //         $rnd = rand(1, 101);
-        //     $sql = "INSERT INTO DISH (kitchen_id,type_id,user_id,date_added,title,short_description,long_description,image) VALUES ('$i','$i', '$rnd', NOW(),'Title for dish_$i','Short description for Dish_$i','A slightly longer description for Dish_$i','Dish_$i')";
-
-        //     $result = mysqli_query($dbc, $sql);
-
-        //     if(mysqli_affected_rows($dbc) != 1) {
-        //         echo "Error: " . mysqli_error($dbc);
-        //         mysqli_close($dbc);
-        //         break;
-        //     } 
-        // }
-
 
     

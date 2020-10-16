@@ -24,10 +24,10 @@ class FoodItem {
         return $FoodItem;
     }
 
-    public function SelectFoodItem($FoodItemId) {
+    public function SelectFoodItem($food_item_id) {
         
         $FoodItem = false;
-        $sql = "select * from FOOD_ITEM where ID = $FoodItemId";
+        $sql = "select * from FOOD_ITEM where ID = $food_item_id";
         $result = mysqli_query($this->db, $sql);
         
         if ($result->num_rows > 0) {
