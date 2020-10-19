@@ -40,10 +40,10 @@
             }
         }
 
-        public function SelectDishInfo($record_type) {
+        public function SelectDishInfo($dish_id, $record_type) {
             $dish_info = false;
 
-            $sql = "SELECT * FROM DISH_INFO WHERE record_type = \"$record_type\"";
+            $sql = "SELECT * FROM DISH_INFO WHERE dish_id = $dish_id AND record_type = \"$record_type\"";
             $result = mysqli_query($this->dbc, $sql);
 
             if($result->num_rows > 0) {

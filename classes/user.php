@@ -13,11 +13,7 @@
             $sql = 'SELECT * FROM USER WHERE ID = $user_id';
             $result = mysqli_query($this->dbc, $sql);
 
-            if($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    $user[] = $row;
-                }
-            }
+            $user =$result->fetch_assoc();
             return $user;
         }
     }
