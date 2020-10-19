@@ -27,7 +27,7 @@
             $this->dish_info = new DishInfo($this->dbc);
         }
 
-        public function SelectDish(...$dish_id) {
+        public function SelectDishOrDishes(...$dish_id) {
             $dish = false;
 
             foreach($dish_id as $value) {
