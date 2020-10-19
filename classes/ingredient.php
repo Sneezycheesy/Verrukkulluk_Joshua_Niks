@@ -5,10 +5,10 @@ require_once("./food_item.php");
     class Ingredient {
         private $dbc;
 
-        public function GetIngredients($dish_id) {
+        public function GetIngredient($dish_id) {
             $ingredients = false;
             
-            $sql = "SELECT * FROM INGREDIENTS WHERE dish_id = $dish_id";
+            $sql = "SELECT * FROM INGREDIENT WHERE dish_id = $dish_id";
             $result = mysqli_query($this->dbc, $sql);
 
             if($result->num_rows > 0) {
