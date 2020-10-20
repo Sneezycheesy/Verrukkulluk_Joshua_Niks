@@ -7,32 +7,23 @@
         }
 
         public function AddFoodItemToGroceryList($food_item, $amount) {
-            for($amount; $amount > 0; $amount--) {
-                $this->grocery_list[] = $food_item;
-            }
+            $this->grocery_list[$food_item] = $amount;
         }
 
         public function RemoveFoodItemFromGroceryList($food_item) {
-            if ($this->grocery_list->delete($food_item)) {
-                return true;
-            }
-            else {
-                return false;
-            }
+            unset($this->grocery_list[$food_item]);
         }
 
         public function CheckProducts($food_item) {
-            $amount = 0;
-            foreach($this->grocery_list as $item) {
-                if ($item == $food_item) {
-                    $amount++;
-                }
-            }
-            return $amount;
+            return $this->grocery_list[$food_item] or false;
+        }
+
+        public function UpdateAmountOfProduct($food_item, $amount) {
+            $this->grocery_list[$food_item] = $amount;
         }
 
         public function GetGroceryList() {
-            return $this->grocery_list or false;
+            return $this->grocery_list;
         }
 
     }

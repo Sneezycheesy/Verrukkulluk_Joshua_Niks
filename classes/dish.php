@@ -95,4 +95,18 @@
             $kitchen_type = $this->kitchen_type->GetKitchenType($kitchen_type_id);
             return $kitchen_type;
         }
+
+        public function SearchDish($title) {
+            $dish = false;
+
+            $sql = "SELECT * FROM DISH WHERE title LIKE _$title_";
+            $result = mysqli_query($this->dbc, $sql);
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $dish[] = $row;
+                }
+            }
+            return $dish;
+        }
     }
