@@ -37,9 +37,4 @@ class FoodItem {
         }
         return($FoodItem);
     }
-
-
-
-
-
 }

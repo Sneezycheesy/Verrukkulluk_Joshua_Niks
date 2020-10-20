@@ -20,7 +20,7 @@
 
         public function RemoveFoodItemFromGroceryList($food_item) {
             unset($this->grocery_list[$food_item]);
-            return GetGroceryList();
+            return $this->GetGroceryList();
         }
 
         public function CheckProducts($food_item) {
@@ -29,7 +29,7 @@
 
         public function UpdateAmountOfProduct($food_item, $amount) {
             $this->grocery_list[$food_item]["amount"] = $amount;
-            return GetGroceryList();
+            return $this->GetGroceryList();
         }
 
         public function GetGroceryList() {

@@ -14,11 +14,8 @@
             $result = mysqli_query($dbc, $sql);
 
             if($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    $kitchen_type[] = $row;
-                }
+                $kitchen_type[] = $result->fetch_assoc();
             }
-
             return $kitchen_type;
         }
     }
