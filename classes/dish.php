@@ -13,11 +13,7 @@
         private $ingredient;
         private $user;
         private $food_item;
-        private $comments;
-        private $ratings;
         private $kitchen_type;
-        private $preparation;
-        private $favourite;
 
 
         public function __construct($connection) {
@@ -44,11 +40,9 @@
             return $dish;
         }
 
-        public function GetDishInfo($dish_id) {
-            $this->comments = $this->dish_info->GetDishInfo($dish_id, "comment");
-            $this->favourite = $this->dish_info->GetDishInfo($dish_id, "favourite");
-            $this->ratings = $this->dish_info->GetDishInfo($dish_id, "rating");
-            $this->preparation = $this->dish_info->GetDishInfo($dish_id, "preparation");
+        public function GetDishInfo($dish_id, $record_type) {
+            $dish_info = $this->dish_info->GetDishInfo($dish_id. $record_type);
+            return $dish_info;
         }
 
         public function GetIngredient($dish_id) {
@@ -76,6 +70,7 @@
             foreach($food_items as $food_item) {
                 $total += $food_item['price'];
             }
+            return $total;
         }
 
         public function CalculateCalories($food_items) {
@@ -83,6 +78,7 @@
             foreach($food_items as $food_item) {
                 $total += $food_item['calories'];
             }
+            return $total;
         }
 
         public function CalculateRating() {
@@ -91,6 +87,7 @@
                 $total += $rating['numeric_field'];
             }
             $total /= count($this->ratings);
+            return $total;
         }
 
         public function GetKitchenType($kitchen_type_id) {
@@ -101,7 +98,7 @@
         public function SearchDish($title) {
             $dish = false;
 
-            $sql = "SELECT * FROM DISH WHERE title LIKE _$title_";
+            $sql = "SELECT * FROM DISH WHERE title LIKE _\"$title\"_";
             $result = mysqli_query($this->dbc, $sql);
 
             if ($result->num_rows > 0) {
