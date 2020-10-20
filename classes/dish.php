@@ -16,6 +16,8 @@
         private $comments;
         private $ratings;
         private $kitchen_type;
+        private $preparation;
+        private $favourite;
 
 
         public function __construct($connection) {
@@ -43,10 +45,10 @@
         }
 
         public function GetDishInfo($dish_id) {
-            $comment = $this->dish_info->GetDishInfo($dish_id, "comment");
-            $favourite = $this->dish_info->GetDishInfo($dish_id, "favourite");
+            $this->comments = $this->dish_info->GetDishInfo($dish_id, "comment");
+            $this->favourite = $this->dish_info->GetDishInfo($dish_id, "favourite");
             $this->ratings = $this->dish_info->GetDishInfo($dish_id, "rating");
-            $preparation = $this->dish_info->GetDishInfo($dish_id, "preparation");
+            $this->preparation = $this->dish_info->GetDishInfo($dish_id, "preparation");
         }
 
         public function GetIngredient($dish_id) {

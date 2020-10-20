@@ -6,8 +6,11 @@
 
         }
 
+        /// Store food items in list as key=>value pairs
+        /// (storing $food_item x amount of times could also work, is this better?)
         public function AddFoodItemToGroceryList($food_item, $amount) {
-            $this->grocery_list[$food_item] = $amount;
+            $this->grocery_list[] = $food_item;
+            $this->grocery_list[$food_item]["amount"] = $amount;
         }
 
         public function RemoveFoodItemFromGroceryList($food_item) {
@@ -19,7 +22,7 @@
         }
 
         public function UpdateAmountOfProduct($food_item, $amount) {
-            $this->grocery_list[$food_item] = $amount;
+            $this->grocery_list[$food_item]["amount"] = $amount;
         }
 
         public function GetGroceryList() {
