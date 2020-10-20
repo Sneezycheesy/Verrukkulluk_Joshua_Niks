@@ -4,6 +4,7 @@ require_once("./food_item.php");
 
     class Ingredient {
         private $dbc;
+        private $food_item;
 
         public function GetIngredient($dish_id) {
             $ingredients = false;
@@ -13,9 +14,8 @@ require_once("./food_item.php");
 
             if($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    $food_item = new FoodItem($row['food_item_id']);
-                    $row['food_item'][] = $food_item;
-
+                    $food_items = $this->food_item->SelectFoodItem($row['food_item_id']);
+                    $row['food_items'] = $food_items;
                     $ingredients[] = $row;
                 }
             }
@@ -24,5 +24,6 @@ require_once("./food_item.php");
 
         public function __construct($connection) {
             $this->dbc = $connection;
+            $this->food_item = new FoodItem($this->dbc);
         }
     }

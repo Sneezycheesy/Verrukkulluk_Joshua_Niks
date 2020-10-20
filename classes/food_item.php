@@ -20,7 +20,6 @@ class FoodItem {
                 $FoodItem[] = $row;
                 }
         }
-
         return $FoodItem;
     }
 
