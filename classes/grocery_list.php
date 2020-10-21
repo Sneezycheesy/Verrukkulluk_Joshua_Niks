@@ -22,7 +22,7 @@
             }
        }
 
-        public function RemoveFoodItemFromGroceryList($food_item) { /// Work In Progress
+        public function RemoveFoodItemFromGroceryList($food_item) { 
             foreach($this->grocery_list as $key=>$value) {
                 if ($value["ID"] == $food_item["ID"]) {
                     unset($this->grocery_list[$key]);
@@ -31,14 +31,15 @@
             return $this->GetGroceryList();
         }
 
-        public function CheckProducts($food_item_id) {
+        public function CheckProducts($food_item) {
             $food_item = false;
-            foreach($this->grocery_list as $food) {
-                if($food["ID"] == $food_item_id) {
-                    $food_item != $food_item; 
+            if(count($this->grocery_list) > 0) {
+                foreach($this->grocery_list as $key=>$value) {
+                    if($value["ID"] == $food_item["ID"]) {
+                        $food_item = $key;
+                    }                
                 }
-            }
-
+            }            
             return $food_item;
         }
 

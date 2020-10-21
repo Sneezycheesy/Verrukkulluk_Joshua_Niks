@@ -3,7 +3,6 @@
     require_once("./dish_info.php");
     require_once("./ingredient.php");
     require_once("./user.php");
-    require_once("./food_item.php");
     require_once("./kitchen_type.php");
     
     class dish {
@@ -12,7 +11,6 @@
         private $dish_info;
         private $ingredient;
         private $user;
-        private $food_item;
         private $kitchen_type;
 
 
@@ -25,18 +23,51 @@
             $this->dish_info = new DishInfo($this->dbc);
         }
 
-        public function SelectDishOrDishes(...$dish_id) {
+        public function SelectDishOrDishes($dish_id = "") {
             $dish = false;
-
-            foreach($dish_id as $value) {
-
-                $sql = "SELECT * FROM DISH WHERE ID = $value";
-                $result = mysqli_query($this->dbc, $sql);
-
-                if($result->num_rows > 0) {
-                    $dish[] = $result->fetch_assoc();
-                }
+            
+            $sql = "SELECT * FROM DISH";
+            
+            if($dish_id != "") {
+                $sql .= " WHERE ID = $dish_id";
             }
+            
+            $result = mysqli_query($this->dbc, $sql);
+            
+            while($row = $result->fetch_assoc()) {
+                
+                $ingredients = $this->GetIngredient($row["ID"]);
+                $kitchen = $this->GetKitchenType($row["kitchen_id"]);
+                $type = $this->GetKitchenType($row["type_id"]);
+                $comments = $this->GetDishInfo($row["ID"], "comment");
+                $rating = $this->CalculateRating(GetDishInfo($row["ID"], "rating"));
+                $favourites = $this->GetDishInfo($row["ID"], "favourite");
+                $preparation = $this->GetDishInfo($row["ID"], "preparation");
+                $calories = $this->CalculateCalories($ingredients);
+                $price = $this->CalculateTotalPrice($ingredients);
+                $user = $this->GetUser($row['user_id']);
+                
+                $dish[] = [
+                        "id" => $row["ID"],
+                        "kitchen_id" => $row["kitchen_id"],
+                        "type_id" => $row["type_id"],
+                        "user_id" => $row["user_id"],
+                        "date_added" => $row["date_added"],
+                        "title" => $row["title"],
+                        "short_description" => $row["short_description"],
+                        "long_description" => $row["long_description"],
+                        "ingredient" => $ingredients,
+                        "kitchen" => $kitchen,
+                        "type" => $type,
+                        "rating" => $rating,
+                        "favourite" => $favourites,
+                        "comments" => $comments,
+                        "preparation" => $preparation,
+                        "calories" => $calories,
+                        "price" => $price,
+                        "user" => $user,
+                    ];                
+            }           
             return $dish;
         }
 
@@ -51,15 +82,6 @@
             return $ingredient;
         }
 
-        public function GetFoodItems($ingredient) {
-            $food_item = false;
-
-            foreach($ingredient as $food) {
-                $food_item[] = $this->food_item->SelectFoodItem($food['food_item_id']);
-            }
-            return $food_item;
-        }
-
         public function GetUser($user_id) {
             $user = $this->user->GetUser($user_id);
             return $user;
@@ -67,26 +89,28 @@
 
         public function CalculateTotalPrice($food_items) {
             $total = 0;
-            foreach($food_items as $food_item) {
-                $total += $food_item['price'];
+            foreach($food_items as $key=>$value) {
+                $total += $value['price'] * $value['amount'];
             }
             return $total;
         }
 
         public function CalculateCalories($food_items) {
             $total = 0;
-            foreach($food_items as $food_item) {
-                $total += $food_item['calories'];
+            foreach($food_items as $key=>$food_item) {
+                $total += $food_item['calories'] * $food_item['amount'];
             }
             return $total;
         }
 
-        public function CalculateRating() {
+        public function CalculateRating($ratings) {
             $total = 0;
-            foreach($this->ratings as $rating) {
+            foreach($ratings as $rating) {
                 $total += $rating['numeric_field'];
             }
-            $total /= count($this->ratings);
+            if($total != 0) {
+                $total /= count($this->ratings);
+            }
             return $total;
         }
 
