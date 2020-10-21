@@ -1,9 +1,7 @@
 <?php
     require_once("database.php");
-    require_once("./classes/food_item.php");
-    require_once("./classes/user.php");
-    require_once("./classes/kitchen_type.php");
-    require_once("./classes/dish_info.php");
+    require_once("./classes/ingredient.php");
+    require_once("./classes/grocery_list.php");
 
     $db_connection = new database;
 
@@ -13,14 +11,22 @@
         echo "Connection";
     }
 
-    $kitchen_type = new KitchenType($dbc);
-    echo "<pre>";
-    var_dump($kitchen_type->SelectKitchenType("kitchen"));
+    $ingredient = new Ingredient($dbc);
+    $grocery_list = new GroceryList();
 
-    $dish_info = new DishInfo($dbc);
+    $food_item = ["ID" => 1, "name" => "food"];
+
+    $grocery_list->AddFoodItemToGroceryList($food_item, 4);
+    
 
     echo "<pre>";
-    var_dump($dish_info->SelectDishInfo('comment'));
+    var_dump($grocery_list->GetGroceryList());
+    $grocery_list->AddFoodItemToGroceryList($food_item, 4);
+    var_dump($grocery_list->GetGroceryList());
+    $grocery_list->RemoveFoodItemFromGroceryList($food_item);
+
+    var_dump($grocery_list->GetGroceryList());
+    var_dump($ingredient->GetIngredient(3));
 
 
     

@@ -26,15 +26,10 @@ class FoodItem {
     public function SelectFoodItem($food_item_id) {
         
         $FoodItem = false;
-        $sql = "select * from FOOD_ITEM where ID = $food_item_id";
+        $sql = "SELECT * FROM FOOD_ITEM WHERE ID = $food_item_id";
         $result = mysqli_query($this->db, $sql);
         
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-
-                $FoodItem[] = $row;
-            }
-        }
+        $FoodItem[] = $result->fetch_assoc();
         return($FoodItem);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-require_once("./food_item.php");
+require_once("food_item.php");
 
     class Ingredient {
         private $dbc;
@@ -19,13 +19,13 @@ require_once("./food_item.php");
                     $ingredients[] = [
                         "id" => $row["ID"],
                         "dish_id" => $row["dish_id"],
-                        "food_item_id" => $food_items["ID"],
-                        "amount" => $row["numeric_field"],
-                        "name" => $food_items["name"],
-                        "price" => $food_items["price"],
-                        "description" => $food_items["description"],
-                        "calories" => $food_items["calories"],
-                        "image" => $food_items["image"]
+                        "food_item_id" => $food_items[0]["ID"],
+                        "amount" => $row["amount"],
+                        "name" => $food_items[0]["name"],
+                        "price" => $food_items[0]["price"],
+                        "description" => $food_items[0]["description"],
+                        "calories" => $food_items[0]["calories"],
+                        "image" => $food_items[0]["image"]
                     ];
                 }
             }
