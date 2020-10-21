@@ -1,11 +1,11 @@
 <?php
 
-    require_once("./dish_info.php");
-    require_once("./ingredient.php");
-    require_once("./user.php");
-    require_once("./kitchen_type.php");
+    require_once("dish_info.php");
+    require_once("ingredient.php");
+    require_once("user.php");
+    require_once("kitchen_type.php");
     
-    class dish {
+    class Dish {
 
         private $dbc;
         private $dish_info;
@@ -40,7 +40,8 @@
                 $kitchen = $this->GetKitchenType($row["kitchen_id"]);
                 $type = $this->GetKitchenType($row["type_id"]);
                 $comments = $this->GetDishInfo($row["ID"], "comment");
-                $rating = $this->CalculateRating(GetDishInfo($row["ID"], "rating"));
+                $ratings = $this->GetDishInfo($row["ID"], "rating");
+                $rating = $this->CalculateRating($ratings);
                 $favourites = $this->GetDishInfo($row["ID"], "favourite");
                 $preparation = $this->GetDishInfo($row["ID"], "preparation");
                 $calories = $this->CalculateCalories($ingredients);
@@ -72,7 +73,7 @@
         }
 
         public function GetDishInfo($dish_id, $record_type) {
-            $dish_info = $this->dish_info->GetDishInfo($dish_id. $record_type);
+            $dish_info = $this->dish_info->SelectDishInfo($dish_id, $record_type);
             return $dish_info;
         }
 
@@ -83,7 +84,7 @@
         }
 
         public function GetUser($user_id) {
-            $user = $this->user->GetUser($user_id);
+            $user = $this->user->SelectUser($user_id);
             return $user;
         }
 
@@ -115,7 +116,7 @@
         }
 
         public function GetKitchenType($kitchen_type_id) {
-            $kitchen_type = $this->kitchen_type->GetKitchenType($kitchen_type_id);
+            $kitchen_type = $this->kitchen_type->GetKitchenTypeByID($kitchen_type_id);
             return $kitchen_type;
         }
 

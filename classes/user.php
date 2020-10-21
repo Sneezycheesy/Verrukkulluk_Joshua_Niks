@@ -10,10 +10,10 @@
         public function SelectUser($user_id) {
             $user = false;
             
-            $sql = 'SELECT * FROM USER WHERE ID = $user_id';
+            $sql = "SELECT * FROM USER WHERE ID = $user_id";
             $result = mysqli_query($this->dbc, $sql);
 
-            $user =$result->fetch_assoc();
+            $user[] = $result->fetch_assoc();
             return $user;
         }
     }

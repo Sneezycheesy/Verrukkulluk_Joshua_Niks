@@ -11,7 +11,7 @@
             $kitchen_type = false;
 
             $sql = "SELECT * FROM KITCHEN_TYPE WHERE ID = $ID";
-            $result = mysqli_query($dbc, $sql);
+            $result = mysqli_query($this->dbc, $sql);
 
             if($result->num_rows > 0) {
                 $kitchen_type[] = $result->fetch_assoc();

@@ -6,6 +6,11 @@ require_once("food_item.php");
         private $dbc;
         private $food_item;
 
+        public function __construct($connection) {
+            $this->dbc = $connection;
+            $this->food_item = new FoodItem($this->dbc);
+        }
+
         public function GetIngredient($dish_id) {
             $ingredients = false;
             
@@ -30,10 +35,5 @@ require_once("food_item.php");
                 }
             }
             return $ingredients;
-        }
-
-        public function __construct($connection) {
-            $this->dbc = $connection;
-            $this->food_item = new FoodItem($this->dbc);
         }
     }
