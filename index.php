@@ -16,7 +16,7 @@
 
     echo "<pre>";
 
-
+var_dump($dish->SelectDishOrDishes(""));
     
 
 

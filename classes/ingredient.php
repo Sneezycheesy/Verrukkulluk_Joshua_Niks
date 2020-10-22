@@ -26,6 +26,7 @@ require_once("food_item.php");
                         "dish_id" => $row["dish_id"],
                         "food_item_id" => $food_items[0]["ID"],
                         "amount" => $row["amount"],
+                        "unit" => $food_items[0]["unit"],
                         "name" => $food_items[0]["name"],
                         "price" => $food_items[0]["price"],
                         "description" => $food_items[0]["description"],
