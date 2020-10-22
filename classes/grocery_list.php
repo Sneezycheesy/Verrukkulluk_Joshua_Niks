@@ -6,8 +6,6 @@
 
         }
 
-        /// Store food items in list as key=>value pairs
-        /// (storing $food_item x amount of times could also work, is this better?)
        public function AddFoodItemToGroceryList($food_item, $amount) {
            $item_in_array = false;
             foreach($this->grocery_list as $key=>$value) {
@@ -31,20 +29,12 @@
             return $this->GetGroceryList();
         }
 
-        public function CheckProducts($food_item) {
-            $food_item = false;
-            if(count($this->grocery_list) > 0) {
-                foreach($this->grocery_list as $key=>$value) {
-                    if($value["ID"] == $food_item["ID"]) {
-                        $food_item = $key;
-                    }                
-                }
-            }            
-            return $food_item;
-        }
-
         public function UpdateAmountOfProduct($food_item, $amount) {
-            $this->grocery_list[$food_item]["amount"] = $amount;
+            foreach($this->grocery_list as $key=>$value) {
+                if ($value["ID"] == $food_item["ID"]) {
+                    $this->grocery_list[$key][$value["amount"]] = $amount;
+                }
+            }
             return $this->GetGroceryList();
         }
 
