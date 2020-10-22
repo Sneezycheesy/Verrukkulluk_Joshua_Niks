@@ -103,7 +103,12 @@
             $total = 0;
             if($food_items != false) {
                 foreach($food_items as $key=>$food_item) {
-                    $total += $food_item['calories'] * $food_item['amount'];
+                    if($food_item["unit"] == "gram" || $food_item["unit"] == "milliliter") {
+                        $total += ($food_item['calories'] / 100) * $food_item['amount'];
+                    }
+                    elseif($food_item["unit"] == "kilo" || $food_item["unit"] == "liter") {
+                        $total += ($food_item['calories'] * 10) * $food_item['amount'];
+                    }
                 }
             }
             return $total;
