@@ -90,16 +90,21 @@
 
         public function CalculateTotalPrice($food_items) {
             $total = 0;
-            foreach($food_items as $key=>$value) {
-                $total += $value['price'] * $value['amount'];
+
+            if($food_items != false) {
+                foreach($food_items as $value) {
+                    $total += $value['price'] * $value['amount'];
+                }
             }
             return $total;
         }
 
         public function CalculateCalories($food_items) {
             $total = 0;
-            foreach($food_items as $key=>$food_item) {
-                $total += $food_item['calories'] * $food_item['amount'];
+            if($food_items != false) {
+                foreach($food_items as $key=>$food_item) {
+                    $total += $food_item['calories'] * $food_item['amount'];
+                }
             }
             return $total;
         }
@@ -110,7 +115,7 @@
                 $total += $rating['numeric_field'];
             }
             if($total != 0) {
-                $total /= count($this->ratings);
+                $total /= count($ratings);
             }
             return $total;
         }

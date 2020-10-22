@@ -16,18 +16,6 @@
 
     echo "<pre>";
 
-    $food_item = [
-        "ID" => 1,
-        "name" => "food",
-    ];
-
-    $grocery_list = new GroceryList();
-
-    $grocery_list->AddFoodItemToGroceryList($food_item, 4);
-    var_dump($grocery_list->GetGroceryList());
-
-    $grocery_list->UpdateAmountOfProduct($food_item, 6);
-    var_dump($grocery_list->GetGroceryList());
 
     
 
