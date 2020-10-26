@@ -12,6 +12,7 @@
         private $ingredient;
         private $user;
         private $kitchen_type;
+        private $amount_of_people;
 
 
         public function __construct($connection) {
@@ -47,6 +48,7 @@
                 $calories = $this->CalculateCalories($ingredients);
                 $price = $this->CalculateTotalPrice($ingredients);
                 $user = $this->GetUser($row['user_id']);
+                $this->amount_of_people = $row["amount_of_people"];
                 
                 $dish[] = [
                         "id" => $row["ID"],
@@ -67,6 +69,7 @@
                         "calories" => $calories,
                         "price" => $price,
                         "user" => $user,
+                        "amount_of_people" => $this->amount_of_people,
                     ];                
             }           
             return $dish;
@@ -100,16 +103,31 @@
         }
 
         public function CalculateCalories($food_items) {
+            /// Needs statements for different UNITS like teaspoon, tablespoon, etc.
+            /// Calories are per 100 gram/ml so calculate that difference
             $total = 0;
             if($food_items != false) {
                 foreach($food_items as $key=>$food_item) {
-                    if($food_item["unit"] == "gram" || $food_item["unit"] == "milliliter") {
-                        $total += ($food_item['calories'] / 100) * $food_item['amount'];
-                    }
-                    elseif($food_item["unit"] == "kilo" || $food_item["unit"] == "liter") {
-                        $total += ($food_item['calories'] * 10) * $food_item['amount'];
-                    }
+                    switch($food_item["unit"]) {
+                        case "gram":
+                        case "milliliter":
+                            $total += ($food_item['calories'] / 100) * $food_item['amount'];
+                            break;
+                        case "kilo":
+                        case "kilogram":
+                        case "liter":
+                            $total += ($food_item['calories'] * 10) * $food_item['amount'];
+                            break;
+                        case "milligram":
+                            $total += ($food_item['calories'] / 1000) * $food_item['amount'];
+                            break;
+                        default:
+                            $total += 0;
+                    }                    
                 }
+            }
+            if($this->amount_of_people > 0) {
+                $total /= $this->amount_of_people;
             }
             return $total;
         }
