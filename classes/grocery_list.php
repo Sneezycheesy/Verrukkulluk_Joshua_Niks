@@ -1,9 +1,13 @@
 <?php
+    require_once("./ingredient.php");
 
     class GroceryList {
+        private $dbc;
+        private $ingredient;
         private $grocery_list = [];
-        public function __construct() {
-
+        public function __construct($connection) {
+            $this->dbc = $connection;
+            $this->ingredient = new Ingredient($this->dbc);
         }
 
        public function AddFoodItemToGroceryList($food_item, $amount) {

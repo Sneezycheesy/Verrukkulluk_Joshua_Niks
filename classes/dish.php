@@ -148,17 +148,16 @@
             return $kitchen_type;
         }
 
-        public function SearchDish($title) {
-            $dish = false;
+        public function SearchDish($keyword) {
+            $return_value = false;
 
-            $sql = "SELECT * FROM DISH WHERE title LIKE _\"$title\"_";
-            $result = mysqli_query($this->dbc, $sql);
-
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    $dish[] = $row;
+            $dishes = $this->SelectDishOrDishes();
+            foreach($dishes as $dish) {
+                $dish_text = json_encode($dish);
+                if(strpos($dish_text, $keyword) !== false) {
+                    $dishes[] = $dish;
                 }
             }
-            return $dish;
+            return $return_value;
         }
     }
