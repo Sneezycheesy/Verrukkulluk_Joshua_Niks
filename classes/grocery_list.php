@@ -43,7 +43,7 @@
                 return $this->UpdateGroceryListInDatabase($grocery_list_id, $ingredient);
             } 
             else {
-                return $this->AddFoodItemToGroceryListInDatabase($grocery_list_id, $ingredient);
+                return $this->AddIngredientToGroceryListInDatabase($grocery_list_id, $ingredient);
             }
         }
 
@@ -60,7 +60,7 @@
             return $success;
         }
 
-        private function AddFoodItemToGroceryListInDatabase($grocery_list_id, $ingredient) {
+        private function AddIngredientToGroceryListInDatabase($grocery_list_id, $ingredient) {
             $success = false;
             $ingredient_id = $ingredient["ID"];
 

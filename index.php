@@ -21,6 +21,3 @@ var_dump($grocery_list->GetGroceryListFromDatabase(1));
 $ingredient = new Ingredient($dbc);
 $ingredient = $ingredient->GetIngredient(3);
 var_dump($ingredient);
-
-
-    
