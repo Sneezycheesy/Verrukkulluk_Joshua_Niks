@@ -15,8 +15,14 @@
     $dish = new Dish($dbc);
 
     echo "<pre>";
+$grocery_list = new GroceryList($dbc);
+var_dump($grocery_list->GetGroceryListFromDatabase(1));
 
-var_dump($dish->SelectDishOrDishes(""));
+$ingredient = new Ingredient($dbc);
+$ingredient = $ingredient->GetIngredient(3);
+var_dump($ingredient);
+
+var_dump($grocery_list->CheckToAddFoodItemToGroceryList(1, $ingredient[0]));
     
 
 
