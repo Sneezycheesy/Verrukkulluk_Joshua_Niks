@@ -1,13 +1,59 @@
 <?php
     require_once("./ingredient.php");
+    require_once("./user.php");
 
     class GroceryList {
         private $dbc;
         private $ingredient;
-        private $grocery_list = [];
+        private $user;
         public function __construct($connection) {
             $this->dbc = $connection;
             $this->ingredient = new Ingredient($this->dbc);
+        }
+
+        public function GetGroceryListFromDatabase($user_id) { // Works with database | "GetGroceryList" does not (WIP)
+            $grocery_list = false;
+            $sql = "SELECT * FROM GROCERY_LIST WHERE user_id = $user_id";
+            $result = mysqli_query($this->dbc, $sql);
+
+            if($result->num_rows > 0) {
+                $grocery_list_id = $result->fetch_assoc()["ID"];
+                $sqli = "SELECT * FROM GROCERY_LIST_INGREDIENT WHERE grocery_list_id = $grocery_list_id";
+                $result = mysqli_query($this->dbc, $sqli);
+                if($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        $grocery_list[] = $row;
+                    }
+                }
+            }
+            return $grocery_list;
+        }
+
+        public function CheckToAddFoodItemToGroceryList($grocery_list_id, $ingredient) {
+            $ingredient_id = $ingredient["ID"];
+            $sql = "SELECT * FROM GROCERY_LIST_INGREDIENT WHERE grocery_list_id = $grocery_list_id AND ingredient_id = $ingredient_id";
+            $result = mysqli_query($this->dbc, $sql);
+
+            if($result->num_rows > 0) {
+                return $this->UpdateGroceryListInDatabase($grocery_list_id, $ingredient);
+            } 
+            else {
+                return $this->AddFoodItemToGroceryListInDatabase($grocery_list_id, $ingredient);
+            }
+        }
+
+        private function UpdateGroceryListInDatabase($grocery_list_id, $ingredient) {
+            $success = false;
+            $ingredient_id = $ingredient["ID"];
+            $amount = $ingredient["amount"] * 2;
+            $sql = "UPDATE GROCERY_LIST_INGREDIENT
+            SET amount = $amount
+            WHERE grocery_list_id = $grocery_list_id AND ingredient_id = $ingredient_id";
+            $result = mysqli_query($this->dbc, $sql);
+            if(mysqli_affected_rows($this->dbc) > 0) {
+                $success = !$success;
+            }
+            return $success;
         }
 
        public function AddFoodItemToGroceryList($food_item, $amount) {
