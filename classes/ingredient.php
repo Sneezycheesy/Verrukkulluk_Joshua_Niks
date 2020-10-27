@@ -22,7 +22,7 @@ require_once("food_item.php");
                     $food_items = $this->food_item->SelectFoodItem($row['food_item_id']);
 
                     $ingredients[] = [
-                        "id" => $row["ID"],
+                        "ID" => $row["ID"],
                         "dish_id" => $row["dish_id"],
                         "food_item_id" => $food_items[0]["ID"],
                         "amount" => $row["amount"],
