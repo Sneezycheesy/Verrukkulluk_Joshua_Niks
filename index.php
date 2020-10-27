@@ -22,7 +22,5 @@ $ingredient = new Ingredient($dbc);
 $ingredient = $ingredient->GetIngredient(3);
 var_dump($ingredient);
 
-    
-
 
     
