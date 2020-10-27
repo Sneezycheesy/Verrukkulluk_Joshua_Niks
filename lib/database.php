@@ -1,5 +1,5 @@
 <?php
-    class database {
+    class Database {
         private $dbc;
 
         public function __construct() {

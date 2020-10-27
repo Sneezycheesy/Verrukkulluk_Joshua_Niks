@@ -51,7 +51,7 @@
                 $this->amount_of_people = $row["amount_of_people"];
                 
                 $dish[] = [
-                        "id" => $row["ID"],
+                        "ID" => $row["ID"],
                         "kitchen_id" => $row["kitchen_id"],
                         "type_id" => $row["type_id"],
                         "user_id" => $row["user_id"],

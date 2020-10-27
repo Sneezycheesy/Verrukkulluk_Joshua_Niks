@@ -1,23 +1,62 @@
 <?php
-    require_once("database.php");
-    require_once("./classes/ingredient.php");
-    require_once("./classes/grocery_list.php");
-    require_once("./classes/dish.php");
+//// Allereerst zorgen dat de "Autoloader" uit vendor opgenomen wordt:
+require_once("./vendor/autoload.php");
 
-    $db_connection = new database;
+/// Twig koppelen:
+$loader = new \Twig\Loader\FilesystemLoader("./templates");
 
-    $dbc = $db_connection->GetDatabaseConnection();
+/// VOOR PRODUCTIE:
+/// $twig = new \Twig\Environment($loader), ["cache" => "./cache/cc"]);
 
-    if(mysqli_ping($dbc)) {
-        echo "Connection";
-    }
+/// VOOR DEVELOPMENT:
+$twig = new \Twig\Environment($loader, ["debug" => true ]);
+$twig->addExtension(new \Twig\Extension\DebugExtension());
 
-    $dish = new Dish($dbc);
+/******************************/
 
-    echo "<pre>";
-$grocery_list = new GroceryList($dbc);
-var_dump($grocery_list->GetGroceryListFromDatabase(1));
+/// Next step, iets met je data doen. Ophalen of zo
+require_once("./lib/database.php");
+require_once("./lib/classes/dish.php");
+$database = new Database();
+$dbc = $database->GetDatabaseConnection();
 
-$ingredient = new Ingredient($dbc);
-$ingredient = $ingredient->GetIngredient(3);
-var_dump($ingredient);
+$dish = new Dish($dbc);
+$data = $dish->SelectDishOrDishes();
+
+
+/* 
+URL: 
+http://localhost/index.php?gerecht_id=4&action=detail
+*/
+
+$dish_id = isset($_GET["dish_id"]) ? $_GET["dish_id"] : "";
+$action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
+
+
+switch($action) {
+
+        case "homepage": {
+            $data = $dish->SelectDishOrDishes();
+            $template = 'homepage.html.twig';
+            $title = "homepage";
+            break;
+        }
+
+        case "detail": {
+            $data = $dish->SelectDishOrDishes($dish_id);
+            $template = 'detail.html.twig';
+            $title = "detail pagina";
+            break;
+        }
+
+        /// etc
+
+}
+
+
+/// Onderstaande code schrijf je idealiter in een layout klasse of iets dergelijks
+/// Juiste template laden, in dit geval "homepage"
+$template = $twig->load($template);
+
+/// En tonen die handel!
+echo $template->render(["title" => $title, "data" => $data]);
