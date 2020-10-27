@@ -18,7 +18,7 @@
             $result = mysqli_query($this->dbc, $sql);
 
             if($result->num_rows > 0) {
-                $grocery_list_id = $result->fetch_assoc()["id"];
+                $grocery_list_id = $result->fetch_assoc()["ID"];
                 $sqli = "SELECT * FROM GROCERY_LIST_INGREDIENT WHERE grocery_list_id = $grocery_list_id";
                 $result = mysqli_query($this->dbc, $sqli);
                 if($result->num_rows > 0) {
