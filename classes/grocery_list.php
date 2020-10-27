@@ -69,6 +69,17 @@
             }
             return $success;
         }
+
+        public function RemoveIngredientFromGroceryListInDatabase($grocery_list_id, $ingredient_id) {
+            $success = false;
+            $sql = "DELETE FROM GROCERY_LIST_INGREDIENT WHERE grocery_list_id = $grocery_list_id AND ingredient_id = $ingredient_id";
+            $result = mysqli_query($this->dbc, $sql);
+
+            if(mysqli_affected_rows($this->dbc) > 0) {
+                $success = !$success;
+            }
+            return $success;
+        }
         /// END OF DATABASE FUNCTIONS
 
        public function AddFoodItemToGroceryList($food_item, $amount) {

@@ -22,7 +22,6 @@ $ingredient = new Ingredient($dbc);
 $ingredient = $ingredient->GetIngredient(3);
 var_dump($ingredient);
 
-var_dump($grocery_list->CheckToAddFoodItemToGroceryList(1, $ingredient[0]));
     
 
 
