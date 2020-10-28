@@ -24,8 +24,8 @@ html {
     overflow-x: hidden;
 }
 html, body {
-    background: rgb(178,51,8);
-        background: url(../img/backdrop.svg) rgb(178,51,8) no-repeat center center fixed;
+    /* background: rgb(178,51,8);
+        background: url(../img/backdrop.svg) rgb(178,51,8) no-repeat center center fixed; */
  
   -webkit-background-size: cover;
   -moz-background-size: cover;
