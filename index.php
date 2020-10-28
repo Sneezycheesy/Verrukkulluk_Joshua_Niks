@@ -39,6 +39,7 @@ switch($action) {
             $data = $dish->SelectDishOrDishes();
             $template = 'homepage.html.twig';
             $title = "homepage";
+            $page_id = $_GET["page_id"];
             break;
         }
 

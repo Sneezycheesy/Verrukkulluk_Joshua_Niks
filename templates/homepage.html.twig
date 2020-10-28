@@ -37,89 +37,196 @@
     {# END CAROUSEL#}
 
     {#START CONTENT#}
-	<div class="row">
-		<div class="col-md-4">
-        <h1>Agenda</h1>
-		</div>
-        {% for i in 0..1 %}
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-12">
-                        Image
+	{% include "agenda.html.twig" %} {# Agenda and Login on the LEFT side of the page #}
+        <div class="col-md-8">
+            <div class="row">
+            {% for dish in range(1, 2) %}
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col">
+                            IMAGE
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            {% set dish_id = dish + ((4 * page_id) - 1) %}
+                            {{ data[dish_id].title}}
+                        </div>
+                        <div class="col-md-5">
+                            Rating
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Description
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            SMULLEN
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-2">
+                            ppl
+                        </div>
+                        <div class="col-md-2">
+                            price
+                        </div>
+                        <div class="col-md-2">
+                            cals
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-9">
-                        <h3>{{ data[i].title }}</h3>
+            {% endfor %}
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col">
+                            IMAGE
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <p>{{ data[i].rating}}</p>
+                    <div class="row">
+                        <div class="col-md-7">
+                            title
+                        </div>
+                        <div class="col-md-5">
+                            Rating
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Description
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            SMULLEN
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-2">
+                            ppl
+                        </div>
+                        <div class="col-md-2">
+                            price
+                        </div>
+                        <div class="col-md-2">
+                            cals
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <p>{{ data[i].short_description }}</p>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col">
+                            IMAGE
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <button>Smullen</button>
+                    <div class="row">
+                        <div class="col-md-7">
+                            title
+                        </div>
+                        <div class="col-md-5">
+                            Rating
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        {{ data[i].amount_of_people}}
+                    <div class="row">
+                        <div class="col">
+                            Description
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        €{{ data[i].price}}
-                    </div>
-                    <div class="col-md-3">
-                        {{ data[i].calories}}
+                    <div class="row">
+                        <div class="col-md-5">
+                            SMULLEN
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-2">
+                            ppl
+                        </div>
+                        <div class="col-md-2">
+                            price
+                        </div>
+                        <div class="col-md-2">
+                            cals
+                        </div>
                     </div>
                 </div>
             </div>
-        {% endfor %}
-            
-	</div>
-	<div class="row">
-		<div class="col-md-4">
-        <h1>Login</h1>
-		</div>
-		{% for i in 2..3 %}
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-12">
-                        Image
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col">
+                            IMAGE
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            title
+                        </div>
+                        <div class="col-md-5">
+                            Rating
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Description
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            SMULLEN
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-2">
+                            ppl
+                        </div>
+                        <div class="col-md-2">
+                            price
+                        </div>
+                        <div class="col-md-2">
+                            cals
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-9">
-                        <h3>{{ data[i].title }}</h3>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col">
+                            IMAGE
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <p>rating</p>
+                    <div class="row">
+                        <div class="col-md-7">
+                            title
+                        </div>
+                        <div class="col-md-5">
+                            Rating
+                        </div>
                     </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <p>{{ data[i].short_description }}</p>
+                    <div class="row">
+                        <div class="col">
+                            Description
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <button>Smullen</button>
-                    </div>
-                    <div class="col-md-3">
-                        {{ data[i].amount_of_people }}
-                    </div>
-                    <div class="col-md-3">
-                        €{{ data[i].price }}
-                    </div>
-                    <div class="col-md-3">
-                        {{ data[i].calories}}
+                    <div class="row">
+                        <div class="col-md-5">
+                            SMULLEN
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-2">
+                            ppl
+                        </div>
+                        <div class="col-md-2">
+                            price
+                        </div>
+                        <div class="col-md-2">
+                            cals
+                        </div>
                     </div>
                 </div>
             </div>
-        {% endfor %}
+        </div>      
 	</div>
 	<div class="row">
 		<div class="col-md-4">
@@ -127,27 +234,11 @@
 		<div class="col-md-8">
 			<nav>
 				<ul class="pagination justify-content-center">
-					<li class="page-item">
-						<a class="page-link" href="#">Previous</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">1</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">2</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">3</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">4</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">5</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">Next</a>
-					</li>
+                    {% for i in range(1, data|length / 4) %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page_id={{i}}">{{ i }}</a>
+                        </li>
+                    {% endfor %}
 				</ul>
 			</nav>
 		</div>
@@ -164,17 +255,18 @@
 </div>
 
     {# Loop #}
-    <ul>
+    
+    {# <ul>
     {% for record in data %}
         <li>
             {{ record.title }}
             {# sub-loop #}
-            <ul>
+            {# <ul>
                 {% for ingr in record.ingredient %}
                   <li>
                       <span {% if ingr.ID < 2 %}style='color: #F00'{% endif %}>{{  ingr.name }}</span>
                       {# if #}
-                      {%  if ingr.ID == 3 %}
+                      {# {%  if ingr.ID == 3 %}
                           <strong>Dit is ID 3!</strong>
                       {%  endif  %}
                   </li>
@@ -182,11 +274,11 @@
             </ul>
         </li>
     {% endfor %}
-    <ul>
+    <ul> #}
 
     {# Dump #}
-    <pre>
+    {# <pre>
         {{ dump(data) }}
-    </pre>
+    </pre> #}
 
 {% endblock %}
