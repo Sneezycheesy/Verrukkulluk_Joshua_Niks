@@ -44,15 +44,21 @@
                     <div class="col-md-2">
                         {# EMPTY SPACE #}
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 dish-rating">
                         {# RATING #}
-                        * * * * *
+                        {% for i in range(1, 5) %}
+                            {% if i <= data[0].rating %}
+                                <img src="./assets/images/star-rating.png" class="star-rating">
+                            {% else %}
+                                <img src="./assets/images/star-not-rating.png" class="star-not-rating">
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
-                <div class="row">
+                <div class="row dish-long-description">
                     <div class="col-md-12">
                         {# DESCRIPTION #}
-                        {{ dish[0].long_description }}
+                        {{ data[0].long_description }}
                     </div>
                 </div>
                 <div class="row">
@@ -65,16 +71,17 @@
                     </div>
                     <div class="col-md-2">
                         {# TOGGLE FAVOURITE #}
+                        <img src="#">
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <nav class="nav nav-pills nav-justified">
-                    <a class="nav-link active" href="#">Ingrediënten</a>
-                    <a class="nav-link" href="#">Bereidingswijze</a>
-                    <a class="nav-link" href="#">Opmerkingen</a>
+                <nav class="nav nav-tabs">
+                    <a class="nav-link active" data-toggle="tab" href="#">Ingrediënten</a>
+                    <a class="nav-link" data-toggle="tab" href="#">Bereidingswijze</a>
+                    <a class="nav-link" data-toggle="tab" href="#">Opmerkingen</a>
                 </nav>
             </div>
     </div>

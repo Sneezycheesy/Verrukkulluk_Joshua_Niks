@@ -10,3 +10,15 @@
     margin: 0px;
     padding: 0px;
 }
+
+.dish-long-description {
+    border: 2px solid #000;
+    height: 20rem;
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+.dish-rating img {
+    width: 1.5rem;
+}
