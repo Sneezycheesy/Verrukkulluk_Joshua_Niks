@@ -1,4 +1,3 @@
-# Verrukkulluk_Joshua_Niks
 <img src="#"/>
 <h1> Verrukkulluk</h1>
 
