@@ -1,0 +1,91 @@
+{% extends "main.html.twig" %}
+
+{% block content %}
+
+<h4> Dit is de template {{ title }} </h4>
+<container>
+    <div class="row">
+        <div class="col-md-12">
+            Big Image
+        </div>
+    </div>
+    {% include "agenda.html.twig" %}
+
+    <div class="col-md-8 dish-container">
+        <div class="row">
+            <div class="col-md-5">
+            {# DISH IMAGE #}
+            <img class="dish-detail-image" src="./assets/images/hamburger.jpg" />
+            </div>
+            <div class="col-md-7">
+                <div class="row">
+                {# ROW FOR PPL PRICE AND CALS#}
+                    <div class="col-md-2">
+                    {# PPL #}
+                    PPL {{ data[0].amount_of_people }}
+                    </div>
+                    <div class="col-md-2">
+                    {# PRICE #}
+                    €{{ data[0].price }}
+                    </div>
+                    <div class="col-md-2">
+                    {# CALS #}
+                    {{ data[0].calories }}
+                    </div>
+                    <div class="col-md-6">
+                    {# EMPTY SPACE#}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        {# DISH TITLE #}
+                        <h3> {{ data[0].title }} </h3>
+                    </div>
+                    <div class="col-md-2">
+                        {# EMPTY SPACE #}
+                    </div>
+                    <div class="col-md-5">
+                        {# RATING #}
+                        * * * * *
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        {# DESCRIPTION #}
+                        {{ dish[0].long_description }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        {# BUTTON "OP LIJST" #}
+                        <button>Op Lijst</button>
+                    </div>
+                    <div class="col-md-7">
+                        {# EMPTY SPACE #}
+                    </div>
+                    <div class="col-md-2">
+                        {# TOGGLE FAVOURITE #}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="nav nav-pills nav-justified">
+                    <a class="nav-link active" href="#">Ingrediënten</a>
+                    <a class="nav-link" href="#">Bereidingswijze</a>
+                    <a class="nav-link" href="#">Opmerkingen</a>
+                </nav>
+            </div>
+    </div>
+    </div>
+</div>
+</container>
+
+
+
+
+
+
+
+{% endblock %}
