@@ -1,3 +1,29 @@
+:root {
+
+    /* FONTS */
+    --heading: "pretty_lilyregular";
+
+    /* COLORS */
+    --dark-brown: #402214;
+    --lighter-brown:  #774231;
+    --lightest-brown: #aa4b1b;
+
+    --darker-red: #b31714;
+    --lighter-red: #dc3439;
+
+    --kahki: #fff0d6;
+
+    --darker-orange: #eb8d1f;
+    --lighter-orange: #fca01f;
+
+    --darker-green: #6e8722;
+    --lighter-green: #95b82d;
+
+    --white: #FFF;
+    --black: #000;
+
+}
+
 .carousel-home-page {
     margin-left: 0px;
 }
@@ -30,8 +56,28 @@
 }
 
 .dish-block {
-    border: 2px hidden;
+    height: 30vh;
+    border: 0px hidden;
     box-shadow: 2px 2px 2px 1px #888;
     margin-top: 5px;
     margin-bottom: 10px;
+}
+
+.dish-block img {
+    position: relative;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.dish-title {
+    color: var(--lighter-green);
+}
+
+.dish-image-row {
+    height: 10vh;
+}
+
+.dish-image-col {
+    padding: 0px;
 }

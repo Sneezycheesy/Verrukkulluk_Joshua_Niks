@@ -36,39 +36,39 @@
 	</div> #}
     {# END CAROUSEL#}
 
-    {#START CONTENT#}
-	{% include "agenda.html.twig" %} {# Agenda and Login on the LEFT side of the page #}
-        <div class="col-md-8">
+    {#START CONTENT#}{# Agenda and Login on the LEFT side of the page #}
+        <div class="col-md-12 dish-grid">
         {% for dish in range(1, 4) %}
             {% if dish % 2 != 0 %}
                 <div class="row"> {# CREATE A NEW ROW FOR 2 DISHES WHENEVER AND ODD DISH IS BEING PLACED #}
+            <div class="col-md-1">
+            </div>
             {% endif %}
-                
                 {% set dish_id = dish + ((4 * page_id) - 1) %}
-                <div class="col-md-6 dish-block">
-                    <div class="row">
-                        <div class="col">
-                            <img src={{ data[dish_id].image}} />
+                <div class="col-md-4 dish-block">
+                    <div class="row dish-image-row dish-block-row">
+                        <div class="col dish-image-col">
+                            <img src={{ data[dish_id].image }} />
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-7">
-                            {{ data[dish_id].title}}
+                    <div class="row dish-block-row">
+                        <div class="col-md-7 dish-title">
+                           <h5> {{ data[dish_id].title }} </h5>
                         </div>
                         <div class="col-md-5">
                             Rating
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row dish-block-row">
                         <div class="col">
                             {{ data[dish_id].short_description }}
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            SMULLEN
+                    <div class="row dish-block-row">
+                        <div class="col-md-4">
+                            <button>SMULLEN</button>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-2">
                         </div>
                         <div class="col-md-2">
                             ppl {{ data[dish_id].amount_of_people }}
@@ -80,10 +80,13 @@
                             cals {{data[dish_id].calories }}
                         </div>
                     </div>
+                </div>
+                <div class="col-md-1">
+                </div>
             {% if dish % 2 == 0 %} {# CLOSE ROW IF 2 DISHES HAVE BEEN PLACED #}
+                
                 </div>
             {% endif %}
-                </div>
         {% endfor %}
             </div>
         </div>
@@ -92,7 +95,7 @@
 		</div>
 		<div class="col-md-8">
 			<nav>
-				<ul class="pagination justify-content-center">
+				<ul class="pagination-sm pagination pb-sm-5 pb-5 justify-content-end">
                     {% for i in range(1, data|length / 4) %}
                         <li class="page-item">
                             <a class="page-link" href="?page_id={{i}}">{{ i }}</a>
@@ -103,14 +106,6 @@
 		</div>
 	</div>
     {# END CONTENT #}
-	<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">
-		</div>
-	</div>
 </div>
 
     {# Loop #}
