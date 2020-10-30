@@ -84,7 +84,10 @@
                 <div class="col-md-1">
                 </div>
             {% if dish % 2 == 0 %} {# CLOSE ROW IF 2 DISHES HAVE BEEN PLACED #}
-                
+                {% if dish == 2 %}
+                    <div class="row dish-devide-row">
+                    </div>
+                {% endif %}
                 </div>
             {% endif %}
         {% endfor %}
