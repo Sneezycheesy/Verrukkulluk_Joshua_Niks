@@ -3,19 +3,12 @@
 {% block content %}
 
 <h4> Dit is de template {{ title }} </h4>
-<container>
-    <div class="row">
-        <div class="col-md-12">
-            Big Image
-        </div>
-    </div>
-    {% include "agenda.html.twig" %}
 
-    <div class="col-md-8 dish-container">
-        <div class="row">
+    <div class="col-md-12">
+        <div class="row dish-container">
             <div class="col-md-5">
             {# DISH IMAGE #}
-            <img class="dish-detail-image" src="./assets/images/hamburger.jpg" />
+            <img class="dish-detail-image" src="#" />
             </div>
             <div class="col-md-7">
                 <div class="row">
@@ -76,7 +69,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+    <div class="row dish-information">
             <div class="col-md-12">
                 <nav class="nav nav-tabs">
                     <a class="nav-link active" data-toggle="tab" href="#">Ingrediënten</a>
@@ -84,10 +77,9 @@
                     <a class="nav-link" data-toggle="tab" href="#">Opmerkingen</a>
                 </nav>
             </div>
-    </div>
+        </div>
     </div>
 </div>
-</container>
 
 
 
