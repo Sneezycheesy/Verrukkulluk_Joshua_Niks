@@ -55,8 +55,14 @@
                         <div class="col-md-7 dish-title">
                            <h5> {{ data[dish_id].title }} </h5>
                         </div>
-                        <div class="col-md-5">
-                            Rating
+                        <div class="col-md-5 dish-rating">
+                            {% for i in range(1, 5) %}
+                                {% if i <= data[dish_id].rating %}
+                                    <img src="./assets/images/star-rating.png" />
+                                {% else %}
+                                    <img src="./assets/images/star-not-rating.png" />
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="row dish-block-row">
@@ -66,7 +72,7 @@
                     </div>
                     <div class="row dish-block-row">
                         <div class="col-md-4">
-                            <button>SMULLEN</button>
+                            <button class="dish-button">SMULLEN!</button>
                         </div>
                         <div class="col-md-2">
                         </div>
