@@ -53,13 +53,8 @@ html, body {
     font-size: 16px;
 }
 
-.navbar-image {
-    width: 35%;
-}
-
-.navbar-search {
-    z-index: 1;
-
+.navbar-image img {
+    width: 15%;
 }
 
 .navbar-toggle-button {
@@ -68,7 +63,7 @@ html, body {
 
 .navbar-carousel {
     z-index: 1;
-    position: absolute;
+    position: relative;
     justify-content: unset;
 }
 
