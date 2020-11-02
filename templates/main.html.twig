@@ -47,21 +47,65 @@
 		</div>
 	</div>
 
-    <div class="row">
-        <div class="col-md-3 agenda">
-            <div class="row">
-                <div class="agenda-title">
-                    <h2>Agenda</h2>
+        <div class="row">
+            <div class="col-md-3 agenda-and-login">
+                <div class="row agenda">
+                    <div class="col-md-12">
+                        <div class="row agenda-title">
+                            <div class="col-md-12">
+                                <h2>Agenda</h2>
+                            </div>
+                        </div>
+                        <div class="row agenda-item">
+                            <div class="col-md-12">
+                                <i class="fa fa-calendar"></i><i class="agenda-item-text">Agenda Item</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="row login">
+                <div class="col-md-12 login-column">
+                    <div class="row login-image">
+                        <div class="col-md-12">
+                            <img src="./assets/img/verrukkulluk-login.png" />
+                        </div>
+                    </div>
+                    <form class="login-form">
+                        <div class="row login-email-label">
+                            <div class="col-md-12">
+                                <label>Email</label>
+                            </div>
+                        </div>
+                        <div class="row login-email-input">
+                            <div class="col-md-12">
+                                <input type="text" placeholder="Email" />
+                            </div>
+                        </div>
+                        <div class="row login-password">
+                            <div class="col-md-12">
+                                <div class="row login-password-label">
+                                    <div class="col-md-12">
+                                        <label>Wachtwoord</label>
+                                    </div>
+                                </div>
+                                <div class="row login-password-input">
+                                    <div class="col-md-12">
+                                        <input type="password" placeholder="wachtwoord" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row login-button">
+                        <div class="col-md-12">
+                            <button>Login</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            {% for i in range(0, 14) %}
-            <div class="agenda-item">
-                <i class="fa fa-calendar"> </i> <i class="agenda-item-text"> Agenda Item </i>
-            </div>
-            {% endfor %}
-
         </div>
+       
         <div class="col-md-9">
             <h2>Content</h2>
             {%  block content %}
@@ -70,10 +114,23 @@
     </div>
 
 
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Footer</h1>
-        </div>
+    <div class="row footer">
+            <div class="col-md-2 logo-footer">
+                <img src="./assets/img/verrukkulluk-pay-off.png" />
+            </div>
+            <div class="col-md-2 contact-footer">
+                <div class="row contact-image-footer">
+                    <img src="./assets/img/verrukkulluk-contact.png" />
+                </div>
+                <div class="row contact-info-footer">
+                    <p>
+                        Verrukkulluk.nl<br/>
+                        Poststraat 2b<br/>
+                        Sittard<br/>
+                        info@verrukkulluk.nl
+                    </p>
+                </div>
+            </div>
     </div>
 
 
