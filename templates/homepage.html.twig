@@ -7,35 +7,6 @@
     {# Print #}
     <h4>Dit is de template {{  title }}</h4>
 
-{# START CAROUSEL #}
-    {# <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="carousel slide" data-ride="carousel" id="carousel-804731">
-				<ol class="carousel-indicators">
-					<li data-slide-to="0" data-target="#carousel-804731" class="active">
-					</li>
-					<li data-slide-to="1" data-target="#carousel-804731">
-					</li>
-					<li data-slide-to="2" data-target="#carousel-804731">
-					</li>
-				</ol>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img class="d-block w-100" alt="Carousel Bootstrap First" src="https://www.layoutit.com/img/sports-q-c-1600-500-1.jpg" />
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" alt="Carousel Bootstrap Second" src="https://www.layoutit.com/img/sports-q-c-1600-500-2.jpg" />
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" alt="Carousel Bootstrap Third" src="https://www.layoutit.com/img/sports-q-c-1600-500-3.jpg" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> #}
-    {# END CAROUSEL#}
-
     {#START CONTENT#}{# Agenda and Login on the LEFT side of the page #}
         <div class="col-md-12 dish-grid">
         {% for dish in range(1, 4) %}
@@ -87,24 +58,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-2">
                 </div>
             {% if dish % 2 == 0 %} {# CLOSE ROW IF 2 DISHES HAVE BEEN PLACED #}
-                {% if dish == 2 %}
+                {# {% if dish == 2 %}
                     <div class="row dish-devide-row">
                     </div>
-                {% endif %}
+                {% endif %} #}
                 </div>
             {% endif %}
         {% endfor %}
             </div>
         </div>
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-2">
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-10">
 			<nav>
-				<ul class="pagination-sm pagination pb-sm-5 pb-5 justify-content-end">
+				<ul class="pagination-sm pagination pb-sm-5 pb-5">
                     {% for i in range(1, data|length / 4) %}
                         <li class="page-item">
                             <a class="page-link" href="?page_id={{i}}">{{ i }}</a>
@@ -116,32 +87,4 @@
 	</div>
     {# END CONTENT #}
 </div>
-
-    {# Loop #}
-    
-    {# <ul>
-    {% for record in data %}
-        <li>
-            {{ record.title }}
-            {# sub-loop #}
-            {# <ul>
-                {% for ingr in record.ingredient %}
-                  <li>
-                      <span {% if ingr.ID < 2 %}style='color: #F00'{% endif %}>{{  ingr.name }}</span>
-                      {# if #}
-                      {# {%  if ingr.ID == 3 %}
-                          <strong>Dit is ID 3!</strong>
-                      {%  endif  %}
-                  </li>
-                {% endfor %}
-            </ul>
-        </li>
-    {% endfor %}
-    <ul> #}
-
-    {# Dump #}
-    {# <pre>
-        {{ dump(data) }}
-    </pre> #}
-
 {% endblock %}

@@ -60,17 +60,9 @@ html, body {
 }
 
 .carousel-inner img {
-    max-height: 100%;
-    max-width: 100%;
-    width: auto;
-    height: auto;
     position: relative;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    padding: auto;
+    top: 50%;
+    transform: translateY(-25%);
 }
 
 .hidden-navbar {
@@ -97,6 +89,7 @@ html, body {
 
 .navbar-image img {
     width: 70%;
+    background-color: transparent;
 }
 
 .navbar-toggle-button {
@@ -107,6 +100,7 @@ html, body {
     z-index: 1;
     position: relative;
     justify-content: unset;
+    background-color: transparent;
 }
 
 .navbar-carousel img{
