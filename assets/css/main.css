@@ -53,8 +53,50 @@ html, body {
     font-size: 16px;
 }
 
+.carousel-inner {
+    height: 30vh;
+    width: 100%;
+    position: relative;
+}
+
+.carousel-inner img {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: auto;
+}
+
+.hidden-navbar {
+    background-color: var(--white);
+    vertical-align: middle;
+    font-family: var(--heading);
+}
+
+.hidden-navbar a, .hidden-navbar a:active, .hidden-navbar a:visited, .hidden-navbar a:hover {
+    color: var(--lighter-red);
+    text-decoration: none;
+}
+
+.hidden-navbar-text {
+    padding-top: 3%;
+    font-size: 3rem;
+}
+
+.hidden-navbar-image img {
+    width: 80%;
+    padding-left: 20%;
+    padding-top: 10%;
+}
+
 .navbar-image img {
-    width: 15%;
+    width: 70%;
 }
 
 .navbar-toggle-button {
@@ -76,6 +118,7 @@ html, body {
     padding-left: 3rem;
     padding-right: 3rem;
     margin-bottom: 2rem;
+    margin-top: 1rem;
 }
 
 .agenda {
@@ -86,8 +129,11 @@ html, body {
 }
 
 .agenda-title {
-    width: 100%;
     text-align: center;
+}
+
+.agenda-title img {
+    width: 60%;
     color: var(--white);
 }
 
