@@ -28,7 +28,6 @@
     height: 30vh;
     border: 0px hidden;
     box-shadow: 2px 2px 2px 1px #888;
-    margin-top: 5px;
     margin-bottom: 10px;
 }
 
@@ -40,7 +39,7 @@
 }
 
 .dish-title {
-    color: var(--lighter-green);
+    color: var(--darker-green);
 }
 
 .dish-image-row {
@@ -70,4 +69,8 @@
 .dish-rating img {
     min-width: 5px;
     max-width: 45px;
+}
+
+.dish-block-deviding-row {
+    height: 2vh;
 }

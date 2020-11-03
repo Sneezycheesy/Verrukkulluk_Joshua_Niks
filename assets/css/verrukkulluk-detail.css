@@ -1,3 +1,54 @@
+:root {
+
+    /* FONTS */
+    --heading: "pretty_lilyregular";
+
+    /* COLORS */
+    --dark-brown: #402214;
+    --lighter-brown:  #774231;
+    --lightest-brown: #aa4b1b;
+
+    --darker-red: #b31714;
+    --lighter-red: #dc3439;
+
+    --kahki: #fff0d6;
+
+    --darker-orange: #eb8d1f;
+    --lighter-orange: #fca01f;
+
+    --darker-green: #6e8722;
+    --lighter-green: #95b82d;
+
+    --white: #FFF;
+    --black: #000;
+
+}
+
+/** HEADING **/
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading) !important;
+}
+
+h1 {
+    font-size: 52px;
+}
+
+h2 {
+    font-size: 42px;
+}
+
+h3, h4, h5 {
+    font-size: 32px;
+}
+
+
+/** HTML / BODY **/
+html, body {
+    font-family: "Helvetica Neue", Arial, SansSerif;
+    font-size: 16px;
+}
+
+
 .dish-container {
     border: 20px hidden;
     width: 100%;
@@ -6,6 +57,10 @@
     margin-bottom: 15px;
     box-shadow: 2px 2px 4px 3px #888;
     z-index: 1;
+}
+
+.dish-detail-title-row {
+    color: var(--darker-green);
 }
 
 .dish-detail-image  {
@@ -32,4 +87,17 @@
     box-shadow: 2px 2px 4px 3px #888;
     padding: 20px;
     width: 100%;
+}
+
+.dish-detail-button button {
+    font-family: --heading;
+    color: var(--white);
+    background-color: var(--lighter-red);
+    transition: .5s;
+    border-radius: 20px;
+    border: hidden;
+}
+
+.dish-detail-button button:hover {
+    background-color: var(--darker-red);
 }

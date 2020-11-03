@@ -70,11 +70,7 @@ button:active, button:focus {
 }
 
 .carousel-indicators li {
-    background-color: var(--white);
-    border-radius: 50%;
-    box-shadow: -1px -1px 1px 1px #888, 1px 1px 1px 1px #888;
-    width: 1rem;
-    height: .1vh;
+    background-color: var(--black);
 }
 
 .hidden-navbar {
@@ -125,12 +121,15 @@ button:active, button:focus {
     border-radius: 10%;
 }
 
+.main-template-row {
+    margin-top: 2%;
+}
+
 .agenda-and-login {
     width: 100%;
     padding-left: 3rem;
     padding-right: 3rem;
     margin-bottom: 2rem;
-    margin-top: 1rem;
 }
 
 .agenda {
