@@ -24,27 +24,6 @@
 
 }
 
-.carousel-home-page {
-    margin-left: 0px;
-}
-
-.carousel-search {
-    display: flex;
-    position: absolute;
-    float: right;
-    z-index: 1;
-    top: 10px;
-    right: 20px;
-}
-
-.carousel-search-button {
-    width: 30px;
-    height: 30px;
-    float: right;
-    position: relative;
-    display: inline-flex;
-}
-
 .dish-block {
     height: 30vh;
     border: 0px hidden;
@@ -72,10 +51,6 @@
     padding: 0px;
 }
 
-.dish-devide-row {
-    height: 17rem;
-}
-
 .dish-button {
     font-family: var(--heading);
     color: var(--white);
@@ -89,10 +64,10 @@
 
 .dish-button:hover {
     background-color: var(--darker-red);
-    transition: .3s;
+    transition: .5s;
 }
 
 .dish-rating img {
     min-width: 5px;
-    max-width: 50px;
+    max-width: 45px;
 }

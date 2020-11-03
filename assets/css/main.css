@@ -58,7 +58,7 @@ button:active, button:focus {
 }
 
 .carousel-inner {
-    height: 30vh;
+    height: 35vh;
     width: 100%;
     position: relative;
 }
@@ -67,6 +67,14 @@ button:active, button:focus {
     position: relative;
     top: 50%;
     transform: translateY(-25%);
+}
+
+.carousel-indicators li {
+    background-color: var(--white);
+    border-radius: 50%;
+    box-shadow: -1px -1px 1px 1px #888, 1px 1px 1px 1px #888;
+    width: 1rem;
+    height: .1vh;
 }
 
 .hidden-navbar {
@@ -109,6 +117,12 @@ button:active, button:focus {
 
 .navbar-carousel img{
     width: 40%;
+}
+
+.nav-search {
+    position: relative;
+    float: inline-end;
+    border-radius: 10%;
 }
 
 .agenda-and-login {
