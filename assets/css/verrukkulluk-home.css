@@ -84,6 +84,12 @@
     border: hidden;
     border-radius: 40px;
     width: 100%;
+    transition: .5s;
+}
+
+.dish-button:hover {
+    background-color: var(--darker-red);
+    transition: .3s;
 }
 
 .dish-rating img {

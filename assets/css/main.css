@@ -53,6 +53,10 @@ html, body {
     font-size: 16px;
 }
 
+button:active, button:focus {
+    outline-style: none;
+}
+
 .carousel-inner {
     height: 30vh;
     width: 100%;
@@ -77,14 +81,14 @@ html, body {
 }
 
 .hidden-navbar-text {
-    padding-top: 3%;
+    padding-top: 1%;
     font-size: 3rem;
 }
 
 .hidden-navbar-image img {
-    width: 80%;
-    padding-left: 20%;
-    padding-top: 10%;
+    width: 73.9%;
+    padding-left: 10%;
+    padding-top: 1.8%;
 }
 
 .navbar-image img {
@@ -98,7 +102,7 @@ html, body {
 
 .navbar-carousel {
     z-index: 1;
-    position: relative;
+    position: absolute;
     justify-content: unset;
     background-color: transparent;
 }
@@ -127,7 +131,7 @@ html, body {
 }
 
 .agenda-title img {
-    width: 60%;
+    width: 40%;
     color: var(--white);
 }
 
@@ -157,10 +161,7 @@ html, body {
     width: 80%;
     border: hidden;
     border-radius: 5px;
-}
-
-.login-form input:active {
-    border: 0px hidden;
+    outline-style: none;
 }
 
 .login-column {
@@ -192,6 +193,12 @@ html, body {
     margin-top: 1rem;
     width: 55%;
     margin-bottom: 1rem;
+    transition: .5s;
+}
+
+.login-button button:hover {
+    background-color: var(--darker-orange);
+    transition: .5s;
 }
 
 .footer {
