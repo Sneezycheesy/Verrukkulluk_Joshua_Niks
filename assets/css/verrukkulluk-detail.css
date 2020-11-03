@@ -72,7 +72,9 @@ html, body {
 
 .dish-long-description-row {
     border: 2px solid #000;
+    min-height: 2rem;
     max-height: 20rem;
+    height: 20rem;
     width: 100%;
     display: block;
     position: relative;
@@ -101,4 +103,10 @@ html, body {
 
 .dish-detail-button button:hover {
     background-color: var(--darker-red);
+}
+
+.detail-nav-tabs a, .detail-nav-tabs a:active, .detail-nav-tabs a.show {
+    font-family: var(--heading);
+    color: var(--darker-green);
+    font-size: 2rem;
 }

@@ -69,16 +69,100 @@
                 </div>
             </div>
         </div>
-    <div class="row dish-information">
-            <div class="col-md-12">
-                <nav class="nav nav-tabs">
-                    <a class="nav-link active" data-toggle="tab" href="#">Ingrediënten</a>
-                    <a class="nav-link" data-toggle="tab" href="#">Bereidingswijze</a>
-                    <a class="nav-link" data-toggle="tab" href="#">Opmerkingen</a>
-                </nav>
+
+    {# START pagination #}
+        
+        <div class="row dish-information">
+                <div class="col-md-12">
+                    <div class="tabbable" id="tabs-97798">
+                        <ul class="nav nav-tabs detail-nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active show" data-toggle="tab" href="#ingredients_tab">Ingrediënten</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#preparation_tab">Bereidingswijze</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#comments_tab">Opmerkingen</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content detail-tab-pages">
+
+                            {# START TAB 1 - INGREDIENTS#}
+                                <div class="tab-pane active" id="ingredients_tab">
+                                    {# START FOR LOOP TO DISPLAY ALL INGREDIENTS #}
+                                        {% for ingredient in data[0].ingredients %}
+                                            <div class="row">
+                                                <div class="col-md-2 ingredient-image-column">
+                                                    <img src=ingredient.image />
+                                                </div>
+                                                <div class="col-md-10 ingredient-info-column">
+                                                    <div class="row ingredient-title-row">
+                                                        <div class="col-md-12 ingredient-title-column">
+                                                            {{ ingredient.name }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row ingredient-description-row">
+                                                        <div class="col-md-12 ingredient-description-column">
+                                                            {{ ingredient.description }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    {# END FOR LOOP TO DISPLAY ALL INGREDIENTS #}
+                                </div>
+                            {# END TAB 1 - INGREDIENTS #}
+
+                            {# START TAB 2 - PREPARATION #}
+                                <div class="tab-pane" id="preparation_tab">
+                                    {# START FOR LOOP TO DISPLAY ALL PREPARATION STEPS #}
+                                        {% for preparation in data[0].preparation %}
+                                            <div class="row preparation-row">
+                                                <div class="col-md-2 preparation-image-column">
+                                                    <img src="#" />
+                                                </div>
+                                                <div class="col-md-10 preparation-description-column">
+                                                    <p> {{ preparation.text_field }} </p>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    {# END FOR LOOP TO DISPLAY ALL PREPARATION STEPS #}
+                                </div>
+                            {# END TAB 2 - PREPARATIONS #}
+
+                            {# START TAB 3 - COMMENTS #}
+                                <div class="tab-pane" id="comments_tab">
+                                    {# START FOR LOOP TO DISPLAY ALL COMMENTS #}
+                                        {% for comment in data[0].comments %}
+                                            <div class="row comment-row">
+                                                <div class="col-md-2 comment-image-column">
+                                                    <img src="#" />
+                                                </div>
+                                                <div class="col-md-10 comment-name-text-column">
+                                                    <div class="row comment-name-row">
+                                                        <div class="col-md-12 comment-name-column">
+                                                            <p> {{ comment.user_id }} </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row comment-text-row">
+                                                        <div class="col-md-12 comment-text-column">
+                                                            <p> {{ comment.text_field }} </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    {# END FOR LOOP TO DISPLAY ALL COMMENTS #}
+                                </div>
+                            {# END TAB 3 - COMMENTS #}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+
+    {# END PAGINATION #}
 </div>
 
 

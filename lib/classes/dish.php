@@ -59,7 +59,7 @@
                         "title" => $row["title"],
                         "short_description" => $row["short_description"],
                         "long_description" => $row["long_description"],
-                        "ingredient" => $ingredients,
+                        "ingredients" => $ingredients,
                         "kitchen" => $kitchen,
                         "type" => $type,
                         "rating" => $rating,
