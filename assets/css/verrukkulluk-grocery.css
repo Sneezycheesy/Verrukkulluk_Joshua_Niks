@@ -1,0 +1,114 @@
+:root {
+
+    /* FONTS */
+    --heading: "pretty_lilyregular";
+
+    /* COLORS */
+    --dark-brown: #402214;
+    --lighter-brown:  #774231;
+    --lightest-brown: #aa4b1b;
+
+    --darker-red: #b31714;
+    --lighter-red: #dc3439;
+
+    --kahki: #fff0d6;
+
+    --darker-orange: #eb8d1f;
+    --lighter-orange: #fca01f;
+
+    --darker-green: #6e8722;
+    --lighter-green: #95b82d;
+
+    --white: #FFF;
+    --black: #000;
+
+}
+
+/** HEADING **/
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading) !important;
+}
+
+h1 {
+    font-size: 52px;
+}
+
+h2 {
+    font-size: 42px;
+}
+
+h3, h4, h5 {
+    font-size: 32px;
+}
+
+
+/** HTML / BODY **/
+html, body {
+    font-family: "Helvetica Neue", Arial, SansSerif;
+    font-size: 16px;
+}
+
+.grocery-container {
+    box-shadow: 2px 2px 2px 2px #888;
+    padding-left: 5%;
+}
+
+/* START ALL GROCERY LIST ITEMS */
+    .grocery-list-items-row {
+        height: 60vh;
+        overflow: auto;
+    }
+
+    .grocery-list-item-row {
+        margin-bottom: 2%;
+        max-height: 25%;
+    }
+
+    .grocery-list-item-image-column {
+        text-align: center;
+        width: 100%;
+    }
+
+    .grocery-list-item-image-column img {
+        width: 100%;
+    }
+
+
+    .grocery-list-page-title-row, .grocery-list-item-description-column {
+        color: var(--darker-green);
+    }
+
+    .grocery-list-item-title-row {
+        color: var(--darker-green);
+    }
+
+    .grocery-list-item-amount-column input{
+        width: 70%;
+        text-align: center;
+        border: 1px solid #888;
+        border-radius: 7% 7% 7% 7%;
+    }
+
+    .grocery-list-item-price-unit-column {
+        color: var(--lighter-red);
+        font-size: 1.5rem;
+    }
+
+    .grocery-list-item-price-value-column {
+        font-size: 1rem;
+        vertical-align: middle;
+        padding-top: 5%
+    }
+/* END ALL GROCERY LIST ITEMS*/
+
+/* START EVERYTHING IN THE LAST ROW TOTAL PRICE */
+    .grocery-list-total-price-row {
+        padding-top: 2%;
+        padding-bottom: 3%;
+    }
+
+    .grocery-list-total-price-title-column {
+        color: var(--darker-red);
+    }
+/* END EVERYTHING IN THE LAST ROW TOTAL PRICE */
+

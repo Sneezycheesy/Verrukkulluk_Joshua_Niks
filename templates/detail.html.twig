@@ -2,8 +2,6 @@
 
 {% block content %}
 
-<h4> Dit is de template {{ title }} </h4>
-
     <div class="col-md-12">
         <div class="row dish-container">
             <div class="col-md-5">
@@ -41,9 +39,9 @@
                         {# RATING #}
                         {% for i in range(1, 5) %}
                             {% if i <= data[0].rating %}
-                                <img src="./assets/images/star-rating.png" class="star-rating">
+                                <img src="./assets/images/star-rating.png" class="star-rating star" data-value={{i}}>
                             {% else %}
-                                <img src="./assets/images/star-not-rating.png" class="star-not-rating">
+                                <img src="./assets/images/star-not-rating.png" class="star-not-rating star" data-value={{i}}>
                             {% endif %}
                         {% endfor %}
                     </div>
@@ -57,7 +55,7 @@
                 <div class="row">
                     <div class="col-md-3 btn dish-detail-button">
                         {# BUTTON "OP LIJST" #}
-                        <button>Op Lijst</button>
+                        <a href="?action=groceries"><button>Op Lijst</button></a>
                     </div>
                     <div class="col-md-7">
                         {# EMPTY SPACE #}
@@ -70,7 +68,7 @@
             </div>
         </div>
 
-    {# START pagination #}
+    {# START TABBED PAGES #}
         
         <div class="row dish-information">
                 <div class="col-md-12">
@@ -94,7 +92,7 @@
                                         {% for ingredient in data[0].ingredients %}
                                             <div class="row">
                                                 <div class="col-md-2 ingredient-image-column">
-                                                    <img src=ingredient.image />
+                                                    <img src={{ ingredient.image }} />
                                                 </div>
                                                 <div class="col-md-10 ingredient-info-column">
                                                     <div class="row ingredient-title-row">
@@ -162,13 +160,7 @@
             </div>
         </div>
 
-    {# END PAGINATION #}
+    {# END TABBED PAGES #}
 </div>
-
-
-
-
-
-
 
 {% endblock %}

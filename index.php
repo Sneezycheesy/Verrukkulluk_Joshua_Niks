@@ -17,11 +17,13 @@ $twig->addExtension(new \Twig\Extension\DebugExtension());
 /// Next step, iets met je data doen. Ophalen of zo
 require_once("./lib/database.php");
 require_once("./lib/classes/dish.php");
+require_once("./lib/classes/grocery_list.php");
 $database = new Database();
 $dbc = $database->GetDatabaseConnection();
 
 $dish = new Dish($dbc);
-$data = $dish->SelectDishOrDishes();
+
+$grocery_list = new GroceryList($dbc);
 
 
 /* 
@@ -46,6 +48,20 @@ switch($action) {
             $data = $dish->SelectDishOrDishes($dish_id);
             $template = 'detail.html.twig';
             $title = "detail pagina";
+            break;
+        }
+
+        case "groceries": {
+            $data = $grocery_list->GetGroceryListFromDatabase(1);
+            $template = "grocery_list_page.html.twig";
+            $title = "Boodschappen";
+            break;
+        }
+
+        case "favourites": {
+            $data = $dish->SelectDishOrDishes();
+            $template = "favourites_page.html.twig";
+            $title = "Favorieten";
             break;
         }
 

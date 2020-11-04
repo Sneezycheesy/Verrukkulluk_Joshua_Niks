@@ -143,6 +143,10 @@
             return $total;
         }
 
+        public function AddRating($dish_id, $rating) {
+            $this->dish_info->AddRating($dish_id, $rating);
+        }
+
         public function GetKitchenType($kitchen_type_id) {
             $kitchen_type = $this->kitchen_type->GetKitchenTypeByID($kitchen_type_id);
             return $kitchen_type;

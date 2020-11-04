@@ -1,0 +1,77 @@
+{% extends "main.html.twig" %}
+
+{% block content %}
+
+    {# START GROCERY LIST CONTAINER #}
+        <div class="container-fluid grocery-container">
+            {# START TITLE FOR PAGE #}
+                <div class="row grocery-list-page-title-row">
+                    <h1> {{ title }} </h1>
+                </div>
+            {# END TITLE FOR PAGE #}
+
+            {# START GROCERY LIST ITEMS #}
+                <div class="row grocery-list-items-row">
+                    <div class="col-md-12 grocery-list-items-column">
+                        {# START FOR LOOP TO LIST ALL GROCERY ITEMS #}
+                        {% for item in data %}
+                            {% for value in item.ingredient %}
+                                <div class="row grocery-list-item-row">
+                                    <div class="col-md-1 grocery-list-item-image-column">
+                                        <img src={{value.image}} />
+                                    </div>
+                                    <div class="col-md-6 grocery-list-item-title-description-column">
+                                        <div class="row grocery-list-item-title-row">
+                                            <h3>{{ value.name }}</h3>
+                                        </div>
+                                        <div class="row grocery-list-item-description-row">
+                                            <p>{{ value.description }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 grocery-list-item-amount-column">
+                                        <input type="text" placeholder={{ item.grocery_list.amount }}></input>
+                                    </div>
+                                    <div class="col-md-1 grocery-list-item-price-column">
+                                        <div class="row grocery-list-item-price-row">
+                                            <div class="grocery-list-item-price-unit-column">
+                                                €
+                                            </div>
+                                            <div class="grocery-list-item-price-value-column">
+                                                {{ value.price }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 grocery-list-item-controls-column">
+                                        <div class="row grocery-list-item-controls-row">
+                                            <div class="col-md-6 grocery-list-item-controls-approve-column">
+                                                <a href="#"><button>OK</button></a>
+                                            </div>
+                                            <div class="col-md-6 grocery-list-item-controls-delete-column">
+                                                <a href="#"><button>RM</button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                        {# END FOR LOOP TO LIST ALL GROCERY ITEMS #}
+                    </div>
+                </div>
+            {# END GROCERY LIST ITEMS #}
+
+            {# START ROW FOR TOTAL PRICE #}
+                <div class="row grocery-list-total-price-row">
+                    <div class="col-md-8 grocery-list-total-price-title-column">
+                        <h2>Totaal</h2>
+                    </div>
+                    <div class="col-md-2 grocery-list-total-price-total-column">
+                        <p>Total</p>
+                    </div>
+                    <div class="col-md-2 grocery-list-total-price-control-column">
+                        <button class="btn btn-dark">RM</button>
+                    </div>
+                </div>
+            {# END ROW FOR TOTAL PRICE #}
+        </div>
+    {# END GROCERY CONTAINER#}
+{% endblock %}

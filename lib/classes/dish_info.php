@@ -40,7 +40,7 @@
             }
         }
 
-        public function AddRating($rating, $dish_id, $date) {
+        public function AddRating($rating, $dish_id) {
             $sql = "INSERT INTO DISH_INFO (record_type,dish_id,date,numeric_field) VALUES ('rating',$dish_id,NOW(),$rating)";
             $result = mysqli_query($this->dbc, $sql);
 
