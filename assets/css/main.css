@@ -145,10 +145,10 @@ button:active, button:focus {
 
 .agenda-title img {
     width: 40%;
-    color: var(--white);
 }
 
 .fa-calendar {
+    padding-right: 5%;
     color: var(--white);
 }
 

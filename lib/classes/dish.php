@@ -63,7 +63,7 @@
                         "kitchen" => $kitchen,
                         "type" => $type,
                         "rating" => $rating,
-                        "favourite" => $favourites,
+                        "favourites" => $favourites,
                         "comments" => $comments,
                         "preparation" => $preparation,
                         "calories" => $calories,
