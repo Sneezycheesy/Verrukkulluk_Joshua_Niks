@@ -55,14 +55,14 @@
                 <div class="row">
                     <div class="col-md-3 btn dish-detail-button">
                         {# BUTTON "OP LIJST" #}
-                        <a href="?action=groceries"><button>Op Lijst</button></a>
+                        <a href=""><button id="dish-grocery-button">Op Lijst</button></a>
                     </div>
                     <div class="col-md-7">
                         {# EMPTY SPACE #}
                     </div>
                     <div class="col-md-2">
                         {# TOGGLE FAVOURITE #}
-                        <img src="#">
+                        <img src="#" id="favourite-button" />
                     </div>
                 </div>
             </div>
@@ -97,12 +97,12 @@
                                                 <div class="col-md-10 ingredient-info-column">
                                                     <div class="row ingredient-title-row">
                                                         <div class="col-md-12 ingredient-title-column">
-                                                            {{ ingredient.name }}
+                                                            {{ ingredient.food_item[0].name }}
                                                         </div>
                                                     </div>
                                                     <div class="row ingredient-description-row">
                                                         <div class="col-md-12 ingredient-description-column">
-                                                            {{ ingredient.description }}
+                                                            {{ ingredient.food_item[0].description }}
                                                         </div>
                                                     </div>
                                                 </div>

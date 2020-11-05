@@ -4,7 +4,7 @@
     require_once("ingredient.php");
     require_once("user.php");
     require_once("kitchen_type.php");
-    
+
     class Dish {
 
         private $dbc;
@@ -96,7 +96,7 @@
 
             if($food_items != false) {
                 foreach($food_items as $value) {
-                    $total += $value['price'] * $value['amount'];
+                    $total += $value["food_item"][0]["price"] * $value['amount'];
                 }
             }
             return $total;
@@ -107,19 +107,19 @@
             /// Calories are per 100 gram/ml so calculate that difference
             $total = 0;
             if($food_items != false) {
-                foreach($food_items as $key=>$food_item) {
-                    switch($food_item["unit"]) {
+                foreach($food_items as $food_item) {
+                    switch($food_item["food_item"][0]["unit"]) {
                         case "gram":
                         case "milliliter":
-                            $total += ($food_item['calories'] / 100) * $food_item['amount'];
+                            $total += ($food_item["food_item"][0]['calories'] / 100) * $food_item['amount'];
                             break;
                         case "kilo":
                         case "kilogram":
                         case "liter":
-                            $total += ($food_item['calories'] * 10) * $food_item['amount'];
+                            $total += ($food_item["food_item"][0]['calories'] * 10) * $food_item['amount'];
                             break;
                         case "milligram":
-                            $total += ($food_item['calories'] / 1000) * $food_item['amount'];
+                            $total += ($food_item["food_item"][0]['calories'] / 1000) * $food_item['amount'];
                             break;
                         default:
                             $total += 0;

@@ -19,19 +19,13 @@ require_once("food_item.php");
 
             if($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    $food_items = $this->food_item->SelectFoodItem($row['food_item_id']);
+                    $food_item = $this->food_item->SelectFoodItem($row['food_item_id']);
 
                     $ingredients[] = [
                         "ID" => $row["ID"],
                         "dish_id" => $row["dish_id"],
-                        "food_item_id" => $food_items[0]["ID"],
+                        "food_item" => $food_item,
                         "amount" => $row["amount"],
-                        "unit" => $food_items[0]["unit"],
-                        "name" => $food_items[0]["name"],
-                        "price" => $food_items[0]["price"],
-                        "description" => $food_items[0]["description"],
-                        "calories" => $food_items[0]["calories"],
-                        "image" => $food_items[0]["image"]
                     ];
                 }
             }

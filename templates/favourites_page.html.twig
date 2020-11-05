@@ -34,7 +34,7 @@
                                                         </div>
                                                         <div class="col-md-5 favourite-dish-rating-column">
                                                             {% for i in range(1, 5) %}
-                                                                {% if i <= data[dish_id].rating %}
+                                                                {% if i <= item.rating %}
                                                                     <img src="./assets/images/star-rating.png" />
                                                                 {% else %}
                                                                     <img src="./assets/images/star-not-rating.png" />
@@ -47,6 +47,22 @@
                                                     <div class="row favourite-description-row">
                                                         <div class="col-md-12 favourite-description-column">
                                                             <p> {{ item.short_description }} </p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row favourite-dish-information-row">
+                                                        <div class="col-md-5 favourite-dish-button-column">
+                                                            <a href="?dish_id={{item.ID}}&action=detail"><button class="dish-button">SMULLEN</button></a>
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-2 favourite-dish-amount-of-people-column">
+                                                            <img src="#" /> {{ item.amount_of_people }}
+                                                        </div>
+                                                        <div class="col-md-2 favourite-dish-price-column">
+                                                            <img src="#" /> {{ item.price }}
+                                                        </div>
+                                                        <div class="col-md-2 favourite-dish-calories-column">
+                                                            <img src="#" /> {{ item.calories }}
                                                         </div>
                                                     </div>
 

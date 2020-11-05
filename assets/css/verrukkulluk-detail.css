@@ -128,11 +128,16 @@ html, body {
     height: 100%;
 }
 
+.rated {
+    content: url("../images/star-rated.png");
+}
+
 .hover-rated {
     content: url("../images/star-not-rated.png");
 }
 
-.rated {
-    content: url("../images/star-rated.png");
+.favourite-yes {
+    max-width: 100%;
+    content: url("../images/favourite-yes.png");
 }
 

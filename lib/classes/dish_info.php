@@ -40,11 +40,11 @@
             }
         }
 
-        public function AddRating($rating, $dish_id) {
+        public function AddRating($dish_id, $rating) {
             $sql = "INSERT INTO DISH_INFO (record_type,dish_id,date,numeric_field) VALUES ('rating',$dish_id,NOW(),$rating)";
             $result = mysqli_query($this->dbc, $sql);
 
-            if(mysqli_affected_rows($result) > 0) {
+            if(mysqli_affected_rows($this->dbc) > 0) {
                 return true;
             }
             else {

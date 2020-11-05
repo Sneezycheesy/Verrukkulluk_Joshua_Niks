@@ -48,17 +48,55 @@ html, body {
     font-size: 16px;
 }
 
+.favourite-page-title-row {
+    color: var(--darker-green);
+}
+
+.favourites-page-favourite-row {
+    height: 40vh;
+    margin-bottom: 5vh;
+}
+
+.favourite-dish-block {
+    box-shadow: 2px 2px 2px 2px #888;
+}
+
 .favourite-dish-image-row img {
     width: 100%;
     height: 8rem;
+}
+
+.favourite-description-row {
+    height: 15vh;
 }
 
 .favourite-page-deviding-row {
     height: 2rem;
 }
 
+.favourite-dish-rating-column {
+    padding: 0px;
+}
+
 .favourite-dish-rating-column img {
     min-width: 1%;
     max-width: 20%;
-    width: 16%;
+    width: 15%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.favourite-dish-amount-of-people-column {
+    padding: 0px;
+    width: 100%;
+}
+
+.favourite-dish-price-column {
+    padding: 0px;
+    width: 100%;
+}
+
+.favourite-dish-calories-column {
+    padding: 0px;
+    width: 100%;
 }

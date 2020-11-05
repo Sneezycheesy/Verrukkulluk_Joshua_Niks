@@ -15,7 +15,7 @@
                     <div class="col-md-12 grocery-list-items-column">
                         {# START FOR LOOP TO LIST ALL GROCERY ITEMS #}
                         {% for item in data %}
-                            {% for value in item.ingredient %}
+                            {% for value in item.food_item %}
                                 <div class="row grocery-list-item-row">
                                     <div class="col-md-1 grocery-list-item-image-column">
                                         <img src={{value.image}} />
