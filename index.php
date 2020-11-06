@@ -29,40 +29,58 @@ $grocery_list = new GroceryList($dbc);
 URL: 
 http://localhost/index.php?gerecht_id=4&action=detail
 */
+// $data = $dish;
+// $dish_id = isset($_GET["dish_id"]) ? $_GET["dish_id"] : "";
+// $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
+// $page = isset($_GET["page"]) ? (int)($_GET["page"]) : 1;
 
-$dish_id = isset($_GET["dish_id"]) ? $_GET["dish_id"] : "";
-$action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
-switch($action) {
+    $data = $dish;
+    $dish_id = isset($_GET["dish_id"]) ? $_GET["dish_id"] : "";
+    $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
+    $page_id = isset($_GET["page_id"]) ? (int)$_GET["page_id"] : 1;
+    
+    switch($action) {
 
-        case "homepage": {
-            $data = $dish->SelectDishOrDishes();
-            $template = 'homepage.html.twig';
-            $title = "homepage";
-            break;
-        }
+            case "homepage": {
+                if($data == $dish) {
+                    $data = $dish->SelectDishOrDishes();
+                }
+                $template = 'homepage.html.twig';
+                $title = "homepage";
+                break;
+            }
 
-        case "detail": {
-            $data = $dish->SelectDishOrDishes($dish_id);
-            $template = 'detail.html.twig';
-            $title = "detail pagina";
-            break;
-        }
+            case "detail": {
+                $data = $dish->SelectDishOrDishes($dish_id);
+                $template = 'detail.html.twig';
+                $title = "detail pagina";
+                break;
+            }
 
-        case "groceries": {
-            $data = $grocery_list->GetGroceryListFromDatabase(1);
-            $template = "grocery_list_page.html.twig";
-            $title = "Boodschappen";
-            break;
-        }
+            case "groceries": {
+                $data = $grocery_list->GetGroceryListFromDatabase(1);
+                $template = "grocery_list_page.html.twig";
+                $title = "Boodschappen";
+                break;
+            }
 
-        case "favourites": {
-            $data = $dish->SelectDishOrDishes();
-            $template = "favourites_page.html.twig";
-            $title = "Favorieten";
-            break;
-        }
+            case "favourites": {
+                $data = $dish->SelectDishOrDishes();
+                $template = "favourites_page.html.twig";
+                $title = "Favorieten";
+                break;
+            }
 
+            case "search": {
+                $data = $dish->SearchDish($_GET["search_text"]);
+                $template = "homepage.html.twig";
+                $title = "homepage";
+                break;
+            }
+
+    }
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -70,7 +88,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         switch($_POST["post_action"]) {
             case "AddRating":
                 $dish->AddRating($_POST["dish_id"], $_POST["rating"]);
-                $_SESSION["dishes_rated"] = $data;
                 break;
                 ### Add groceries to the grocery list
             case "AddGrocery":
@@ -101,6 +118,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $grocery_list->RemoveIngredientFromGroceryListInDatabase(1, $food_item["food_item"][0]["ID"]);
                 }
                 break;
+            case "Favourite":
+                $dish->ToggleFavourite($dish_id, 1);
+                break;
         }
     }
 }
@@ -109,8 +129,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $template = $twig->load($template);
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data]);
+echo $template->render(["title" => $title, "data" => $data, "page_id" => $page_id]);
 
 echo "<pre>";
+var_dump($page_id);
 var_dump($data);
 

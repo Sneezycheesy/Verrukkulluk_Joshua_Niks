@@ -152,14 +152,18 @@
             return $kitchen_type;
         }
 
+        public function ToggleFavourite($dish_id, $user_id) {
+            $this->dish_info->ToggleFavourite($dish_id, $user_id);
+        }
+
         public function SearchDish($keyword) {
             $return_value = false;
 
             $dishes = $this->SelectDishOrDishes();
             foreach($dishes as $dish) {
-                $dish_text = json_encode($dish);
+                $dish_text = json_encode($dish["title"]);
                 if(strpos($dish_text, $keyword) !== false) {
-                    $dishes[] = $dish;
+                    $return_value[] = $dish;
                 }
             }
             return $return_value;

@@ -3,16 +3,21 @@
 {# nu de block content op in de main pagina vullen #}
 {% block content %}
     {# Dit is commentaar #}
-
+{% if data|length > 7 %}
+    {% set pagination = data|length / 8 %}
+{% else %}
+    {% set pagination = 1 %}
+{% endif %}
     {#START CONTENT#}{# Agenda and Login on the LEFT side of the page #}
         <div class="col-md-12 dish-grid">
-        {% for dish in range(1, 8) %}
+        {% if data %}
+        {% for dish in range( 1, (data|length / pagination) ) %}
             {% if dish % 2 != 0 %}
                 <div class="row"> {# CREATE A NEW ROW FOR 2 DISHES WHENEVER AND ODD DISH IS BEING PLACED #}
                     <div class="col-md-1">
                     </div>
             {% endif %}
-            {% set dish_id = dish + ((4 * page_id) - 1) %}
+            {% set dish_id = dish + ((8 * (page_id - 1) - 1)) %}
             <div class="col-md-4 dish-block">
                 <div class="row dish-image-row dish-block-row">
                     <div class="col-md-12 dish-image-col">
@@ -66,13 +71,14 @@
                 </div>
             {% endif %}
         {% endfor %}
+        
         </div>
 	<div class="row">
 		<div class="col-md-12">
 			<nav>
 				<ul class="pagination-sm pagination pb-sm-5 pb-5 justify-content-center">
-                    {% for i in range(1, data|length / 4) %}
-                        <li class="page-item">
+                    {% for i in range(1, pagination ) %}
+                        <li class="page-item homepage-pagination-page-item">
                             <a class="page-link" href="?page_id={{i}}">{{ i }}</a>
                         </li>
                     {% endfor %}
@@ -80,6 +86,9 @@
 			</nav>
 		</div>
 	</div>
+    {% else %}
+            <h1>Sorry, geen data gevonden.</h1>
+        {% endif %}
     {# END CONTENT #}
 </div>
 {% endblock %}
