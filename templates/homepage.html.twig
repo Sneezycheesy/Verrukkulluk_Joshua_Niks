@@ -4,14 +4,18 @@
 {% block content %}
     {# Dit is commentaar #}
 {% if data|length > 7 %}
-    {% set pagination = data|length / 8 %}
+    {% if data|length % 8 > 0 %}
+        {% set pagination = data|length / 8 + 1 %}
+    {% else %}
+        {% set pagination = data|length / 8 %}
+    {% endif %}
 {% else %}
     {% set pagination = 1 %}
 {% endif %}
     {#START CONTENT#}{# Agenda and Login on the LEFT side of the page #}
         <div class="col-md-12 dish-grid">
         {% if data %}
-        {% for dish in range( 1, (data|length / pagination) ) %}
+        {% for dish in range( 1, 8) %}
             {% if dish % 2 != 0 %}
                 <div class="row"> {# CREATE A NEW ROW FOR 2 DISHES WHENEVER AND ODD DISH IS BEING PLACED #}
                     <div class="col-md-1">
@@ -78,8 +82,8 @@
 			<nav>
 				<ul class="pagination-sm pagination pb-sm-5 pb-5 justify-content-center">
                     {% for i in range(1, pagination ) %}
-                        <li class="page-item homepage-pagination-page-item">
-                            <a class="page-link" href="?page_id={{i}}">{{ i }}</a>
+                        <li class="page-item homepage-pagination-page-item" data-value="{{i}}">
+                            <a class="page-link" href="">{{ i }}</a>
                         </li>
                     {% endfor %}
 				</ul>

@@ -132,6 +132,4 @@ $template = $twig->load($template);
 echo $template->render(["title" => $title, "data" => $data, "page_id" => $page_id]);
 
 echo "<pre>";
-var_dump($page_id);
-var_dump($data);
 
