@@ -70,13 +70,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         switch($_POST["post_action"]) {
             case "AddRating":
                 $dish->AddRating($_POST["dish_id"], $_POST["rating"]);
+                $_SESSION["dishes_rated"] = $data;
                 break;
                 ### Add groceries to the grocery list
             case "AddGrocery":
                 $dish_id = $_POST["dish_id"];
                 $dish = $dish->SelectDishOrDishes($dish_id);
                 foreach($data[0]["ingredients"] as $ingredient) {
-                    $grocery_list->CheckToAddFoodItemToGroceryList(1, $ingredient["food_item"][0]["ID"], $ingredient["amount"]);
+                    foreach($ingredient as $food_item) {
+                        foreach($food_item as $item) {
+                            $grocery_list->CheckToAddFoodItemToGroceryList(1, $item["ID"], $ingredient["amount"]);
+                        }
+                    }
+                }
+                break;
+                ### Update grocery amount
+            case "UpdateGroceryAmount":
+                $food_item_id = $_POST["food_item_id"];
+                $amount = $_POST["post_amount"];
+                $grocery_list->UpdateAmountOfProduct(1, $food_item_id, $amount);
+                break;
+                ### Remove grocery item from list
+            case "RemoveGrocery":
+                $food_item_id = $_POST["food_item"];
+                $grocery_list->RemoveIngredientFromGroceryListInDatabase(1, $food_item_id);
+                break;
+                ### Remove ALL groceries from list
+            case "RemoveAllGroceries":
+                foreach($data as $food_item) {
+                    $grocery_list->RemoveIngredientFromGroceryListInDatabase(1, $food_item["food_item"][0]["ID"]);
                 }
                 break;
         }
@@ -90,5 +112,5 @@ $template = $twig->load($template);
 echo $template->render(["title" => $title, "data" => $data]);
 
 echo "<pre>";
-var_dump($data[0]["ingredients"]);
+var_dump($data);
 

@@ -70,9 +70,9 @@
             return $success;
         }
 
-        public function RemoveIngredientFromGroceryListInDatabase($grocery_list_id, $ingredient_id) {
+        public function RemoveIngredientFromGroceryListInDatabase($grocery_list_id, $food_item_id) {
             $success = false;
-            $sql = "DELETE FROM GROCERY_LIST_INGREDIENT WHERE grocery_list_id = $grocery_list_id AND ingredient_id = $ingredient_id";
+            $sql = "DELETE FROM GROCERY_LIST_INGREDIENT WHERE grocery_list_id = $grocery_list_id AND food_item_id = $food_item_id";
             $result = mysqli_query($this->dbc, $sql);
 
             if(mysqli_affected_rows($this->dbc) > 0) {
@@ -105,13 +105,19 @@
             return $this->GetGroceryList();
         }
 
-        public function UpdateAmountOfProduct($food_item, $amount) {
-            foreach($this->grocery_list as $key=>$value) {
-                if ($value["ID"] == $food_item["ID"]) {
-                    $this->grocery_list[$key][$value["amount"]] = $amount;
-                }
+        public function UpdateAmountOfProduct($grocery_list_id, $food_item_id, $amount) {
+            $sql = "UPDATE GROCERY_LIST_INGREDIENT 
+            SET amount = $amount 
+            WHERE grocery_list_id = $grocery_list_id AND food_item_id = $food_item_id";
+            
+            $result = mysqli_query($this->dbc, $sql);
+
+            if(mysqli_affected_rows($this->dbc) > 0) {
+                return true;
             }
-            return $this->GetGroceryList();
+            else {
+                return false;
+            }
         }
 
         public function GetGroceryList() {

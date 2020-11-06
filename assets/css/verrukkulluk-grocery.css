@@ -107,8 +107,16 @@ html, body {
         padding-bottom: 3%;
     }
 
+    .grocery-list-total-price-total-column {
+        padding-left: 5%;
+    }
+
     .grocery-list-total-price-title-column {
         color: var(--darker-red);
+    }
+
+    .grocery-list-item-total-price-value-column {
+        padding-top: 3%;
     }
 /* END EVERYTHING IN THE LAST ROW TOTAL PRICE */
 
