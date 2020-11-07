@@ -47,7 +47,6 @@
                 $preparation = $this->GetDishInfo($row["ID"], "preparation");
                 $calories = $this->CalculateCalories($ingredients);
                 $price = $this->CalculateTotalPrice($ingredients);
-                $user = $this->GetUser($row['user_id']);
                 $this->amount_of_people = $row["amount_of_people"];
                 
                 $dish[] = [
@@ -68,7 +67,6 @@
                         "preparation" => $preparation,
                         "calories" => $calories,
                         "price" => $price,
-                        "user" => $user,
                         "amount_of_people" => $this->amount_of_people,
                     ];                
             }           
@@ -84,11 +82,6 @@
             $ingredient = $this->ingredient->GetIngredient($dish_id);
             
             return $ingredient;
-        }
-
-        public function GetUser($user_id) {
-            $user = $this->user->SelectUser($user_id);
-            return $user;
         }
 
         public function CalculateTotalPrice($food_items) {

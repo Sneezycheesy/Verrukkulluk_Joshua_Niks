@@ -1,4 +1,5 @@
 <?php
+session_start();
 //// Allereerst zorgen dat de "Autoloader" uit vendor opgenomen wordt:
 require_once("./vendor/autoload.php");
 
@@ -18,11 +19,13 @@ $twig->addExtension(new \Twig\Extension\DebugExtension());
 require_once("./lib/database.php");
 require_once("./lib/classes/dish.php");
 require_once("./lib/classes/grocery_list.php");
+require_once("./lib/classes/user.php");
+
 $database = new Database();
 $dbc = $database->GetDatabaseConnection();
 
 $dish = new Dish($dbc);
-
+$user = new User($dbc);
 $grocery_list = new GroceryList($dbc);
 
 /* 
@@ -40,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $dish_id = isset($_GET["dish_id"]) ? $_GET["dish_id"] : "";
     $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
     $page_id = isset($_GET["page_id"]) ? (int)$_GET["page_id"] : 1;
+    $user_id = isset($_SESSION["user_id"]) ? (int)$_SESSION["user_id"] : 0;
     
     switch($action) {
 
@@ -121,6 +125,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             case "Favourite":
                 $dish->ToggleFavourite($dish_id, 1);
                 break;
+            case "Login":
+                $user_name = $_POST["post_user_name"];
+                $password = $_POST["post_password"];
+                if ($userid = $user->SelectUser($user_name, $password)) {
+                    $_SESSION["user_id"] = $userid["ID"];
+                }
+                break;
+            case "Logout":
+                $_SESSION["user_id"] = null;
+                break;
         }
     }
 }
@@ -129,7 +143,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $template = $twig->load($template);
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data, "page_id" => $page_id]);
+echo $template->render(["title" => $title, "data" => $data, "page_id" => $page_id, "user_id" => $user_id]);
 
 echo "<pre>";
+var_dump($user->SelectUser("user_1", "Qwerty1"));
+var_dump($user_id);
 

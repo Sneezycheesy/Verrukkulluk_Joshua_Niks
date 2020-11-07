@@ -7,13 +7,15 @@
             $this->dbc = $connection;
         }
 
-        public function SelectUser($user_id) {
+        public function SelectUser($user_name, $password) {
             $user = false;
             
-            $sql = "SELECT * FROM USER WHERE ID = $user_id";
+            $sql = "SELECT * FROM USER WHERE username = '$user_name' AND password = '$password'";
             $result = mysqli_query($this->dbc, $sql);
 
-            $user[] = $result->fetch_assoc();
+            if($result->num_rows > 0) {
+                $user = $result->fetch_assoc();
+            }
             return $user;
         }
     }

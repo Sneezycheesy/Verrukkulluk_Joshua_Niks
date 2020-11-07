@@ -22,6 +22,7 @@
     <script type="text/javascript" language="javascript" src="lib/js/grocery.js"></script>
     <script type="text/javascript" language="javascript" src="lib/js/search.js"></script>
     <script type="text/javascript" language="javascript" src="lib/js/pagination.js"></script>
+    <script type="text/javascript" language="javascript" src="lib/js/session.js"></script>
 
 </html>
 <body>
@@ -114,12 +115,13 @@
 
             <div class="row login">
                 <div class="col-md-12 login-column">
+            {% if user_id == 0 %}
                     <div class="row login-image">
                         <div class="col-md-12">
                             <img src="./assets/img/verrukkulluk-login.png" />
                         </div>
                     </div>
-                    <form class="login-form">
+                    <form class="login-form" id="login-form">
                         <div class="row login-email-label">
                             <div class="col-md-12">
                                 <label>Email</label>
@@ -127,7 +129,7 @@
                         </div>
                         <div class="row login-email-input">
                             <div class="col-md-12">
-                                <input type="text" placeholder="Email" />
+                                <input type="text" placeholder="Email" id="login-email-input"/>
                             </div>
                         </div>
                         <div class="row login-password">
@@ -139,7 +141,7 @@
                                 </div>
                                 <div class="row login-password-input">
                                     <div class="col-md-12">
-                                        <input type="password" placeholder="wachtwoord" />
+                                        <input type="password" placeholder="wachtwoord" id="login-password-input"/>
                                     </div>
                                 </div>
                             </div>
@@ -147,9 +149,18 @@
                     </form>
                     <div class="row login-button">
                         <div class="col-md-12">
-                            <button>Login</button>
+                            <button type="submit" form="login-form" id="login-button">Login</button>
                         </div>
                     </div>
+
+                {% else %}
+                    <h1>Loguit</h1>
+                    <div class="row logout-button">
+                        <div class="col-md-12">
+                            <button id="logout-button">Loguit</button>
+                        </div>
+                    </div>
+                {% endif %}
                 </div>
             </div>
         </div>
