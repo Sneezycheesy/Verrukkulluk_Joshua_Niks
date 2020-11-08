@@ -14,7 +14,6 @@
                         {# START OF INDIVIDUAL ROWS #}
                             {% set loop_count = 1 %}
                             {% for item in data %}
-                                {% for favourite in item.favourites %}
                                     {# {% if favourite.user_id == user_id %} #}
                                         {# START NEW ROW FOR 2 DISHES #}
                                             {% if loop_count % 2 != 0 %}
@@ -24,17 +23,17 @@
                                                 {# START FAVOURITE DISPLAY #}
                                                 <div class="col-md-4 favourite-dish-block">
                                                     <div class="row favourite-dish-image-row">
-                                                        <img src={{item.image}} />
+                                                        <img src={{item[0].image}} />
                                                     </div>
                                                     
                                                     {# START DISH TITLE AND RATING #}
                                                     <div class="row favourite-dish-title-rating-row">
                                                         <div class="col-md-7 favourite-dish-title-column">
-                                                            <h4>{{ item.title }}</h4>
+                                                            <h4>{{ item[0].title }}</h4>
                                                         </div>
                                                         <div class="col-md-5 favourite-dish-rating-column">
                                                             {% for i in range(1, 5) %}
-                                                                {% if i <= item.rating %}
+                                                                {% if i <= item[0].rating %}
                                                                     <img src="./assets/images/star-rating.png" />
                                                                 {% else %}
                                                                     <img src="./assets/images/star-not-rating.png" />
@@ -46,23 +45,23 @@
 
                                                     <div class="row favourite-description-row">
                                                         <div class="col-md-12 favourite-description-column">
-                                                            <p> {{ item.short_description }} </p>
+                                                            <p> {{ item[0].short_description }} </p>
                                                         </div>
                                                     </div>
 
                                                     <div class="row favourite-dish-information-row">
                                                         <div class="col-md-5 favourite-dish-button-column">
-                                                            <a href="?dish_id={{item.ID}}&action=detail"><button class="dish-button">SMULLEN</button></a>
+                                                            <a href="?dish_id={{item[0].ID}}&action=detail"><button class="dish-button">SMULLEN</button></a>
                                                         </div>
                                                         <div class="col-md-1"></div>
                                                         <div class="col-md-2 favourite-dish-amount-of-people-column">
-                                                            <img src="#" /> {{ item.amount_of_people }}
+                                                            <img src="#" /> {{ item[0].amount_of_people }}
                                                         </div>
                                                         <div class="col-md-2 favourite-dish-price-column">
-                                                            <img src="#" /> {{ item.price }}
+                                                            <img src="#" /> {{ item[0].price }}
                                                         </div>
                                                         <div class="col-md-2 favourite-dish-calories-column">
-                                                            <img src="#" /> {{ item.calories }}
+                                                            <img src="#" /> {{ item[0].calories }}
                                                         </div>
                                                     </div>
 
@@ -79,7 +78,6 @@
                                             {% set loop_count = loop_count + 1 %}
                                         {# END NEW ROW FOR 2 DISHES #}
                                     {# {% endif %} #}
-                                {% endfor %}
                             {% endfor %}
                         {# END OF INDIVIDUAL ROWS #}
                     </div>

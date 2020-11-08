@@ -62,7 +62,7 @@ switch($action) {
         }
 
         case "favourites": {
-            $data = $dish->SelectDishOrDishes();
+            $data = $dish->GetFavourites($user_id);
             $template = "favourites_page.html.twig";
             $title = "Favorieten";
             break;

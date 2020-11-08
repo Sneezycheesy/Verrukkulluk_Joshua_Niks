@@ -78,6 +78,21 @@
             return $dish_info;
         }
 
+        public function GetFavourites($user_id) {
+            $return_value = false;
+
+            $sql = "SELECT * FROM DISH_INFO WHERE record_type = 'favourite' AND user_id = $user_id";
+            $result = mysqli_query($this->dbc, $sql);
+
+            if($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $return_value[] = $row;
+                }
+            }
+
+            return $return_value;
+        }
+
         public function __construct($connection) {
             $this->dbc = $connection;
         }
