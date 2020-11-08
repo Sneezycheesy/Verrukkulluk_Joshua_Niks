@@ -47,6 +47,7 @@
                 $preparation = $this->GetDishInfo($row["ID"], "preparation");
                 $calories = $this->CalculateCalories($ingredients);
                 $price = $this->CalculateTotalPrice($ingredients);
+                $user = $this->GetUser($row['user_id']);
                 $this->amount_of_people = $row["amount_of_people"];
                 
                 $dish[] = [
@@ -67,6 +68,7 @@
                         "preparation" => $preparation,
                         "calories" => $calories,
                         "price" => $price,
+                        "user" => $user,
                         "amount_of_people" => $this->amount_of_people,
                     ];                
             }           
@@ -82,6 +84,11 @@
             $ingredient = $this->ingredient->GetIngredient($dish_id);
             
             return $ingredient;
+        }
+
+        public function GetUser($user_id) {
+            $user = $this->user->SelectUser($user_id);
+            return $user;
         }
 
         public function CalculateTotalPrice($food_items) {
@@ -125,6 +132,10 @@
             return $total;
         }
 
+        public function ToggleFavourite($dish_id, $user_id) {
+            return $this->dish_info->ToggleFavourite($dish_id, $user_id);
+        }
+
         public function CalculateRating($ratings) {
             $total = 0;
             foreach($ratings as $rating) {
@@ -145,18 +156,14 @@
             return $kitchen_type;
         }
 
-        public function ToggleFavourite($dish_id, $user_id) {
-            $this->dish_info->ToggleFavourite($dish_id, $user_id);
-        }
-
         public function SearchDish($keyword) {
             $return_value = false;
 
             $dishes = $this->SelectDishOrDishes();
             foreach($dishes as $dish) {
-                $dish_text = json_encode($dish["title"]);
+                $dish_text = json_encode($dish);
                 if(strpos($dish_text, $keyword) !== false) {
-                    $return_value[] = $dish;
+                    $dishes[] = $dish;
                 }
             }
             return $return_value;

@@ -196,7 +196,7 @@ button:active, button:focus {
 
 }
 
-.login-button button, .logout-button button {
+.login-button button {
     background-color: var(--lighter-orange);
     font-family: var(--heading);
     color: var(--white);
