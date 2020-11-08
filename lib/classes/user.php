@@ -16,4 +16,17 @@
             $user[] = $result->fetch_assoc();
             return $user;
         }
+
+        public function LogIn($user_name, $password) {
+            $return_value = false;
+
+            $sql = "SELECT * FROM USER WHERE user_name = '$user_name' AND password = '$password'";
+            $result = mysqli_query($this->dbc, $sql);
+
+            if($result->num_rows > 0) {
+                $return_value = $result->fetch_assoc()["ID"];
+            }
+
+            return $return_value;
+        }
     }

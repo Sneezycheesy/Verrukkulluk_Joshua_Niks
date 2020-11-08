@@ -120,3 +120,7 @@ html, body {
     }
 /* END EVERYTHING IN THE LAST ROW TOTAL PRICE */
 
+/* START WARNING SCREEN WHEN NOT LOGGED IN */
+.not-logged-in-warning {
+    height: 60vh;
+}

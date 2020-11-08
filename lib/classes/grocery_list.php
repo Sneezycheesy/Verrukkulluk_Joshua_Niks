@@ -34,6 +34,18 @@
             return $grocery_list;
         }
 
+        public function GetGroceryListID($user_id) {
+            $return_val = false;
+            $sql = "SELECT * FROM GROCERY_LIST WHERE user_id = $user_id";
+            $result = mysqli_query($this->dbc, $sql);
+
+            if($result->num_rows > 0) {
+                $return_val = $result->fetch_assoc()["ID"];
+            }
+
+            return $return_val;
+        }
+
         public function CheckToAddFoodItemToGroceryList($grocery_list_id, $food_item_id, $amount) {
             $sql = "SELECT * FROM GROCERY_LIST_INGREDIENT WHERE grocery_list_id = $grocery_list_id AND food_item_id = $food_item_id";
             $result = mysqli_query($this->dbc, $sql);
