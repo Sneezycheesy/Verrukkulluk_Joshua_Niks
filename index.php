@@ -29,10 +29,10 @@ $grocery_list = new GroceryList($dbc);
 URL: 
 http://localhost/index.php?gerecht_id=4&action=detail
 */
-
 $dish_id = isset($_GET["dish_id"]) ? $_GET["dish_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
-$page_id = isset($_GET["page_id"]) ? $_GET["page_id"] : 1;
+$page_id = isset($_GET["page_id"]) ? (int)$_GET["page_id"] : 1;
+
 
 switch($action) {
 
@@ -64,7 +64,15 @@ switch($action) {
             break;
         }
 
+        case "search": {
+            $keyword = $_GET["search_text"];
+            $data = $dish->SearchDish($_GET["search_text"]);
+            $template = "homepage.html.twig";
+            $title = "homepage";
+        }
+
 }
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST["post_action"])) {

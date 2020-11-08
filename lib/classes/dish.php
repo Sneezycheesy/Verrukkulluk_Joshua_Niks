@@ -161,9 +161,9 @@
 
             $dishes = $this->SelectDishOrDishes();
             foreach($dishes as $dish) {
-                $dish_text = json_encode($dish);
+                $dish_text = json_encode($dish["title"]);
                 if(strpos($dish_text, $keyword) !== false) {
-                    $dishes[] = $dish;
+                    $return_value[] = $dish;
                 }
             }
             return $return_value;
