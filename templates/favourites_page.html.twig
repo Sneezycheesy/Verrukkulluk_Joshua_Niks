@@ -10,6 +10,7 @@
 
             {# START LIST OF FAVOURITES #}
                 <div class="row favourites-page-favourites-row">
+                {% if user_id != 0 %}
                     <div class="col-md-12 favourites-page-favourites-column">
                         {# START OF INDIVIDUAL ROWS #}
                             {% set loop_count = 1 %}
@@ -81,6 +82,9 @@
                             {% endfor %}
                         {# END OF INDIVIDUAL ROWS #}
                     </div>
+                {% else %}
+                    <h3>Log alstublieft in om uw favorieten te bekijken</h3>
+                {% endif %}
                 </div>
             {# END LIST OF FAVOURITES #}
         </div>

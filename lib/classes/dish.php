@@ -171,9 +171,11 @@
 
         public function GetFavourites($user_id) {
             $return_value = false;
-            foreach($this->dish_info->GetFavourites($user_id) as $dish_info) {
-                $return_value[] = $this->SelectDishOrDishes($dish_info["dish_id"]);
-            }
+            if ($user_id != 0) {
+                foreach($this->dish_info->GetFavourites($user_id) as $dish_info) {
+                    $return_value[] = $this->SelectDishOrDishes($dish_info["dish_id"]);
+                }
+            }            
             return $return_value;
         }
     }
