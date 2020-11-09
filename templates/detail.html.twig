@@ -14,22 +14,22 @@
         <div class="row dish-container">
             <div class="col-md-5">
             {# DISH IMAGE #}
-            <img class="dish-detail-image" src="#" />
+            <img class="dish-detail-image" src="{{data[0].image}}" />
             </div>
             <div class="col-md-7">
-                <div class="row">
+                <div class="row detail-information-icons-row">
                 {# ROW FOR PPL PRICE AND CALS#}
-                    <div class="col-md-2">
+                    <div class="col-md-2 dish-people">
                     {# PPL #}
-                    PPL {{ data[0].amount_of_people }}
+                    <img src="#"/>{{ data[0].amount_of_people }}
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 dish-price">
                     {# PRICE #}
-                    €{{ data[0].price }}
+                    <img src="#" />{{ data[0].price }}
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 dish-calories">
                     {# CALS #}
-                    {{ data[0].calories }}
+                    <img src="#" />{{ data[0].calories }}
                     </div>
                     <div class="col-md-6">
                     {# EMPTY SPACE#}
@@ -100,7 +100,7 @@
                                         {% for ingredient in data[0].ingredients %}
                                             <div class="row">
                                                 <div class="col-md-2 ingredient-image-column">
-                                                    <img src={{ ingredient.image }} />
+                                                    <img src={{ ingredient.food_item[0].image }} />
                                                 </div>
                                                 <div class="col-md-10 ingredient-info-column">
                                                     <div class="row ingredient-title-row">

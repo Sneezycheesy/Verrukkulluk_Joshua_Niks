@@ -63,12 +63,40 @@ html, body {
     color: var(--darker-green);
 }
 
+
 .dish-detail-image  {
     width: 100%;
     height: 100%;
     margin: 0px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
+
+.detail-information-icons-row {
+    height: 2rem;
+}
+
+.detail-information-icons-row img {
+    height: 40%;
+    width: 25%;
+}
+
+.dish-detail-image img {
+    height: 100%;
+}
+
+.dish-people img {
+    content: url("../images/amount-of-people.png");
+}
+
+.dish-price img {
+    content: url("../images/price.png");
+}
+
+.dish-calories img {
+    content: url("../images/calories.png");
+}
+
 
 .dish-long-description-row {
     min-height: 2rem;

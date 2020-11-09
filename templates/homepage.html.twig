@@ -22,7 +22,7 @@
                     </div>
             {% endif %}
             {% set dish_id = dish + ((8 * (page_id - 1) - 1)) %}
-            <div class="col-md-4 dish-block">
+            <div class="col-md-5 dish-block">
                 <div class="row dish-image-row dish-block-row">
                     <div class="col-md-12 dish-image-col">
                         <img src={{ data[dish_id].image }} />
@@ -49,23 +49,25 @@
                 </div>
                     
                 <div class="row dish-block-row">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <a href="?dish_id={{ data[dish_id].ID }}&action=detail"><button class="dish-button">SMULLEN!</button></a>
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-8">
+                        <div class="row dish-information-icons-row">
+                        <div class="col-md-4 dish-amount-of-people-image">
+                            <img src="#"/> {{ data[dish_id].amount_of_people }}
+                        </div>
+                        <div class="col-md-4 dish-price-column">
+                            <div><img src="#" />{{ data[dish_id].price }}</div>
+                        </div>
+                        <div class="col-md-4 dish-calories-column">
+                            <img src="#" /> {{data[dish_id].calories }}
+                        </div>
                     </div>
-                    <div class="col-md-2">
-                        ppl {{ data[dish_id].amount_of_people }}
-                    </div>
-                    <div class="col-md-2">
-                        price {{ data[dish_id].price }}
-                    </div>
-                    <div class="col-md-2">
-                        cals {{data[dish_id].calories }}
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
             </div>
             {% if dish % 2 == 0 %} {# CLOSE ROW IF 2 DISHES HAVE BEEN PLACED #}
                 {% if dish == 2 %}

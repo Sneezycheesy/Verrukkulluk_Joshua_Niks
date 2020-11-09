@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 02, 2020 at 02:03 PM
+-- Generation Time: Nov 09, 2020 at 02:31 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Verrukkulluk_db`
+-- Database: `Verrukkulluk`
 --
 
 -- --------------------------------------------------------
@@ -45,7 +45,7 @@ CREATE TABLE `DISH` (
 --
 
 INSERT INTO `DISH` (`ID`, `kitchen_id`, `type_id`, `user_id`, `date_added`, `title`, `amount_of_people`, `short_description`, `long_description`, `image`) VALUES
-(2, 1, 1, 48, '2020-10-23', 'Title for dish_1', 0, 'Short description for Dish_1', 'A slightly longer description for Dish_1', 'Dish_1'),
+(2, 1, 1, 48, '2020-10-23', 'Title for dish_1', 0, 'Short description for Dish_1', '\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate turpis dolor, eget porttitor massa maximus sit amet. Vestibulum in lectus enim. Vestibulum fringilla sodales viverra. In pellentesque nisl finibus ullamcorper cursus. Donec id quam scelerisque, placerat tellus non, vehicula ante. Integer molestie quis ex non consequat. Ut ac maximus magna, eu tempor enim.\n\nNullam at congue velit, id feugiat turpis. Nunc in cursus sapien. Fusce egestas nisl non est mollis, a aliquam mauris venenatis. In et leo diam. Pellentesque quis tortor enim. Nulla tempus aliquam nisi eget finibus. Nunc sit amet dui cursus, tempor odio a, faucibus nisi.\n\nEtiam maximus felis eros, nec rutrum turpis vulputate at. Quisque aliquam, leo sagittis mollis tincidunt, massa felis dapibus urna, et lobortis tellus tellus pulvinar lorem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum facilisis, magna ut maximus commodo, turpis libero tempor est, sit amet eleifend enim mauris eu nisl. Sed ac nibh pretium, convallis nulla ut, rhoncus nisl. In fermentum diam vitae lacinia auctor. Proin consequat sapien ac volutpat facilisis. Quisque ultricies vitae lectus non feugiat. Nulla euismod erat non tristique rutrum. Aliquam elit turpis, lobortis nec rutrum nec, tincidunt nec ligula. Suspendisse at est dignissim, bibendum massa fringilla, viverra enim. Maecenas nulla metus, placerat sit amet erat eu, porttitor pulvinar mauris.\n\nDonec leo elit, interdum eget hendrerit vitae, feugiat volutpat lacus. Integer justo mi, luctus id ligula a, congue eleifend ante. Aliquam posuere lorem at augue ullamcorper molestie. In venenatis dignissim convallis. Vestibulum vel rhoncus lorem. Morbi non mauris eget nisl luctus placerat mattis a mauris. Aliquam dignissim enim eu tellus imperdiet, at faucibus erat semper. Maecenas cursus dignissim tortor vel egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.\n\nCras ac interdum magna. Maecenas vel volutpat magna. Quisque facilisis nisl dignissim ullamcorper auctor. Nam at aliquam lacus. Phasellus lobortis erat non purus consectetur, eu rutrum lectus sagittis. Proin sit amet sem volutpat, congue metus sit amet, malesuada odio. Sed posuere, dui fermentum laoreet ullamcorper, turpis libero commodo eros, sed lacinia dui erat egestas quam. Sed feugiat velit ac nisi varius lobortis. Aliquam a nulla in velit consectetur commodo sed id magna. Etiam pellentesque ligula pharetra risus semper suscipit. Vestibulum sollicitudin, eros in vehicula pellentesque, nunc urna iaculis urna, in vehicula leo ex sed mi. In finibus augue non mi euismod fringilla. Quisque sit amet porta risus. Duis sit amet molestie turpis.', 'https://www.kindpng.com/picc/m/351-3513669_plate-of-spaghetti-png-transparent-png.png'),
 (3, 2, 2, 29, '2020-10-22', 'Title for dish_2', 0, 'Short description for Dish_2', 'A slightly longer description for Dish_2', 'Dish_2'),
 (4, 3, 3, 12, '2020-10-15', 'Title for dish_3', 0, 'Short description for Dish_3', 'A slightly longer description for Dish_3', 'Dish_3'),
 (5, 4, 4, 75, '2020-10-15', 'Title for dish_4', 0, 'Short description for Dish_4', 'A slightly longer description for Dish_4', 'Dish_4'),
@@ -171,7 +171,42 @@ INSERT INTO `DISH_INFO` (`ID`, `record_type`, `dish_id`, `user_id`, `date`, `num
 (12, 'preparation', 4, NULL, '2020-10-15', 2, 'Stap 2'),
 (13, 'comment', 4, 2, '2020-10-16', NULL, 'Opmerking #1'),
 (14, 'rating', 4, NULL, '2020-10-16', 2, NULL),
-(15, 'favourite', 4, 2, '2020-10-16', NULL, NULL);
+(15, 'favourite', 4, 2, '2020-10-16', NULL, NULL),
+(27, 'rating', 4, NULL, '2020-11-03', 4, NULL),
+(28, 'rating', 4, NULL, '2020-11-03', 2, NULL),
+(29, 'favourite', 5, 2, '2020-11-04', NULL, NULL),
+(30, 'favourite', 7, 2, '2020-11-04', NULL, NULL),
+(46, 'rating', 5, NULL, '2020-11-04', 4, NULL),
+(47, 'rating', 5, NULL, '2020-11-04', 4, NULL),
+(48, 'rating', 3, NULL, '2020-11-04', 4, NULL),
+(49, 'rating', 2, NULL, '2020-11-04', 4, NULL),
+(50, 'rating', 3, NULL, '2020-11-04', 4, NULL),
+(51, 'rating', 3, NULL, '2020-11-04', 5, NULL),
+(52, 'rating', 2, NULL, '2020-11-05', 4, NULL),
+(53, 'rating', 2, NULL, '2020-11-05', 4, NULL),
+(54, 'rating', 2, NULL, '2020-11-05', 3, NULL),
+(55, 'rating', 2, NULL, '2020-11-05', 5, NULL),
+(56, 'rating', 2, NULL, '2020-11-05', 1, NULL),
+(57, 'rating', 2, NULL, '2020-11-05', 3, NULL),
+(58, 'rating', 6, NULL, '2020-11-05', 5, NULL),
+(59, 'rating', 6, NULL, '2020-11-05', 1, NULL),
+(60, 'rating', 6, NULL, '2020-11-05', 1, NULL),
+(61, 'rating', 6, NULL, '2020-11-05', 1, NULL),
+(62, 'rating', 6, NULL, '2020-11-05', 1, NULL),
+(63, 'rating', 6, NULL, '2020-11-05', 1, NULL),
+(64, 'rating', 6, NULL, '2020-11-05', 1, NULL),
+(65, 'rating', 6, NULL, '2020-11-05', 1, NULL),
+(66, 'rating', 6, NULL, '2020-11-05', 1, NULL),
+(67, 'rating', 6, NULL, '2020-11-05', 1, NULL),
+(68, 'rating', 6, NULL, '2020-11-05', 1, NULL),
+(69, 'rating', 6, NULL, '2020-11-05', 4, NULL),
+(70, 'rating', 8, NULL, '2020-11-05', 4, NULL),
+(71, 'rating', 8, NULL, '2020-11-05', 4, NULL),
+(72, 'rating', 8, NULL, '2020-11-05', 3, NULL),
+(79, 'rating', 3, NULL, '2020-11-06', 4, NULL),
+(80, 'rating', 2, NULL, '2020-11-07', 4, NULL),
+(114, 'favourite', 78, 1, '2020-11-09', NULL, NULL),
+(138, 'favourite', 2, 1, '2020-11-09', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -272,7 +307,7 @@ INSERT INTO `FOOD_ITEM` (`ID`, `food_item_id`, `name`, `price`, `unit`, `descrip
 (75, 75, 'food_item_75', 10, 'kilo', 'description of food_item_75', 15, 'text.jpg'),
 (76, 76, 'food_item_76', 10, 'kilo', 'description of food_item_76', 15, 'text.jpg'),
 (77, 77, 'food_item_77', 10, 'gram', 'description of food_item_77', 15, 'text.jpg'),
-(78, 78, 'food_item_78', 10, 'kilo', 'description of food_item_78', 15, 'text.jpg'),
+(78, 78, 'food_item_78', 10, 'kilo', 'description of food_item_78', 15, 'https://i1.wp.com/buynatural.com.au/wp-content/uploads/2020/10/spaghetti_style_single.png?fit=600%2C600&ssl=1'),
 (79, 79, 'food_item_79', 10, 'theelepels', 'description of food_item_79', 15, 'text.jpg'),
 (80, 80, 'food_item_80', 10, 'gram', 'description of food_item_80', 15, 'text.jpg'),
 (81, 81, 'food_item_81', 10, 'theelepels', 'description of food_item_81', 15, 'text.jpg'),
@@ -305,18 +340,16 @@ INSERT INTO `FOOD_ITEM` (`ID`, `food_item_id`, `name`, `price`, `unit`, `descrip
 CREATE TABLE `GROCERY_LIST` (
   `ID` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `ingredient_id` int(11) NOT NULL
+  `food_item_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Dumping data for table `GROCERY_LIST`
 --
 
-INSERT INTO `GROCERY_LIST` (`ID`, `user_id`, `ingredient_id`) VALUES
+INSERT INTO `GROCERY_LIST` (`ID`, `user_id`, `food_item_id`) VALUES
 (1, 1, 1),
-(2, 2, 2),
-(3, 1, 3),
-(4, 1, 4);
+(2, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -327,7 +360,7 @@ INSERT INTO `GROCERY_LIST` (`ID`, `user_id`, `ingredient_id`) VALUES
 CREATE TABLE `GROCERY_LIST_INGREDIENT` (
   `ID` int(11) NOT NULL,
   `grocery_list_id` int(11) NOT NULL,
-  `ingredient_id` int(11) NOT NULL,
+  `food_item_id` int(11) NOT NULL,
   `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
@@ -335,15 +368,10 @@ CREATE TABLE `GROCERY_LIST_INGREDIENT` (
 -- Dumping data for table `GROCERY_LIST_INGREDIENT`
 --
 
-INSERT INTO `GROCERY_LIST_INGREDIENT` (`ID`, `grocery_list_id`, `ingredient_id`, `amount`) VALUES
-(1, 1, 2, 1),
-(2, 1, 1, 2),
-(4, 1, 3, 9),
-(5, 1, 4, 17),
-(6, 1, 7, 38),
-(7, 2, 3, 4),
-(8, 2, 4, 16),
-(9, 2, 7, 37);
+INSERT INTO `GROCERY_LIST_INGREDIENT` (`ID`, `grocery_list_id`, `food_item_id`, `amount`) VALUES
+(57, 0, 80, 40),
+(59, 0, 78, 43),
+(60, 1, 80, 40);
 
 -- --------------------------------------------------------
 
@@ -687,7 +715,7 @@ ALTER TABLE `DISH`
 -- AUTO_INCREMENT for table `DISH_INFO`
 --
 ALTER TABLE `DISH_INFO`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT for table `FOOD_ITEM`
@@ -705,7 +733,7 @@ ALTER TABLE `GROCERY_LIST`
 -- AUTO_INCREMENT for table `GROCERY_LIST_INGREDIENT`
 --
 ALTER TABLE `GROCERY_LIST_INGREDIENT`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `INGREDIENT`
@@ -740,7 +768,7 @@ ALTER TABLE `DISH_INFO`
 --
 ALTER TABLE `INGREDIENT`
   ADD CONSTRAINT `INGREDIENT_ibfk_2` FOREIGN KEY (`dish_id`) REFERENCES `DISH` (`ID`),
-  ADD CONSTRAINT `INGREDIENT_ibfk_3` FOREIGN KEY (`food_item_id`) REFERENCES `FOOD_ITEM` (`Id`);
+  ADD CONSTRAINT `INGREDIENT_ibfk_3` FOREIGN KEY (`food_item_id`) REFERENCES `FOOD_ITEM` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

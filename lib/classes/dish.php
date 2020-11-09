@@ -59,6 +59,7 @@
                         "title" => $row["title"],
                         "short_description" => $row["short_description"],
                         "long_description" => $row["long_description"],
+                        "image" => $row["image"],
                         "ingredients" => $ingredients,
                         "kitchen" => $kitchen,
                         "type" => $type,
