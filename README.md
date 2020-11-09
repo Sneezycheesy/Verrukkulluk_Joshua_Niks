@@ -1,4 +1,4 @@
-<img src="#"/>
+<img src="./assets/img/verrukkulluk-logo.png" style="height: 100px"/>
 <h1> Verrukkulluk</h1>
 
 <h4> Beschrijving </h4>
