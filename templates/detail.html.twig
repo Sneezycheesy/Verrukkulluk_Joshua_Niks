@@ -2,6 +2,14 @@
 
 {% block content %}
 
+{% set favourite = 0 %}
+
+{% for i in range(0, favourites|length - 1) %}
+    {% if favourites[i][0]["ID"] == data[0]["ID"] %}
+        {% set favourite = 1 %}
+    {% endif %}
+{% endfor %}
+
     <div class="col-md-12">
         <div class="row dish-container">
             <div class="col-md-5">
@@ -60,9 +68,9 @@
                     <div class="col-md-7">
                         {# EMPTY SPACE #}
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 favourite-button-column">
                         {# TOGGLE FAVOURITE #}
-                        <img src="#" id="favourite-button" />
+                        <img src="#" id="favourite-button" data-value="{{favourite}}"/>
                     </div>
                 </div>
             </div>

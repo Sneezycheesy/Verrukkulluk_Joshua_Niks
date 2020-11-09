@@ -36,6 +36,7 @@ $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 $page_id = isset($_GET["page_id"]) ? (int)$_GET["page_id"] : 1;
 $user_id = isset($_SESSION["user_id"]) && $_SESSION["user_id"] != 0 ? (int)$_SESSION["user_id"] : 0;
 $grocery_list_id = $user_id != 0 ? $grocery_list->GetGroceryListID($user_id) : 0;
+$favourites = $user_id > 0 ? $dish->GetFavourites($user_id) : 0;
 
 
 switch($action) {
@@ -62,7 +63,7 @@ switch($action) {
         }
 
         case "favourites": {
-            $data = $dish->GetFavourites($user_id);
+            $data = $favourites;
             $template = "favourites_page.html.twig";
             $title = "Favorieten";
             break;
@@ -135,8 +136,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $template = $twig->load($template);
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data, "page_id" => $page_id, "user_id" => $user_id]);
+echo $template->render(["title" => $title, "data" => $data, "page_id" => $page_id, "user_id" => $user_id, "favourites" => $favourites]);
 
 echo "<pre>";
+echo "data:";
 var_dump($data);
+
+echo "favourites:";
+var_dump($favourites);
 
