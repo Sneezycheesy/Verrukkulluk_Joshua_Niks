@@ -76,13 +76,16 @@ html, body {
     height: 2rem;
 }
 
-.detail-information-icons-row img {
+/* .detail-information-icons-row img {
     height: 40%;
     width: 25%;
+} */
+.detail-information-icons-row p {
+    font-size: 25px;
 }
 
-.dish-detail-image img {
-    height: 100%;
+.detail-information-icons-row p img {
+    height: 2rem;
 }
 
 .dish-people img {

@@ -229,6 +229,10 @@ button:active, button:focus {
     width: 40%;
 }
 
-.contact-footer img {
+.contact-image-footer p {
+    font-size: 3rem;
+}
+
+.contact-image-footer p img {
     width: 60%;
 }
