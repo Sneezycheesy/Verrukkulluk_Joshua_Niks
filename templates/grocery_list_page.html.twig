@@ -62,6 +62,26 @@
                         {# END FOR LOOP TO LIST ALL GROCERY ITEMS #}
                     </div>
                 </div>
+
+                {# START ROW FOR TOTAL PRICE #}
+                    <div class="row grocery-list-total-price-row">
+                        <div class="col-md-9 grocery-list-total-price-title-column">
+                            <h2>Totaal</h2>
+                        </div>
+                        <div class="col-md-2 grocery-list-total-price-total-column">
+                            <div class="row">
+                                <div class="grocery-list-item-price-unit-column">
+                                €
+                                </div>
+                                <div class="grocery-list-item-total-price-value-column"> {{total}} </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1 grocery-list-total-price-control-column">
+                            <button class="btn btn-dark" id="remove-all-groceries-button">RM</button>
+                        </div>
+                    </div>
+                {# END ROW FOR TOTAL PRICE #}
+
                 {% else %}
                     <div class="not-logged-in-warning">
                         <h3>Log alstublieft in om de boodschappenlijst te gebruiken</h3>
@@ -69,24 +89,7 @@
                 {% endif %}
             {# END GROCERY LIST ITEMS #}
 
-            {# START ROW FOR TOTAL PRICE #}
-                <div class="row grocery-list-total-price-row">
-                    <div class="col-md-9 grocery-list-total-price-title-column">
-                        <h2>Totaal</h2>
-                    </div>
-                    <div class="col-md-2 grocery-list-total-price-total-column">
-                        <div class="row">
-                            <div class="grocery-list-item-price-unit-column">
-                            €
-                            </div>
-                            <div class="grocery-list-item-total-price-value-column"> {{total}} </div>
-                        </div>
-                    </div>
-                    <div class="col-md-1 grocery-list-total-price-control-column">
-                        <button class="btn btn-dark" id="remove-all-groceries-button">RM</button>
-                    </div>
-                </div>
-            {# END ROW FOR TOTAL PRICE #}
+            
         </div>
     {# END GROCERY CONTAINER#}
 {% endblock %}
