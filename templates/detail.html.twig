@@ -70,7 +70,7 @@
                     </div>
                     <div class="col-md-2 favourite-button-column">
                         {# TOGGLE FAVOURITE #}
-                        <img src="#" id="favourite-button" data-value="{{favourite}}"/>
+                        <img src="#" id="favourite-button" data-value="{{favourite}}" data-user-id="{{user_id}}"/>
                     </div>
                 </div>
             </div>
@@ -126,7 +126,7 @@
                                         {% for preparation in data[0].preparation %}
                                             <div class="row preparation-row">
                                                 <div class="col-md-2 preparation-image-column">
-                                                    <img src="#" />
+                                                    <img src="./assets/images/stap-{{preparation.numeric_field}}.png" />
                                                 </div>
                                                 <div class="col-md-10 preparation-description-column">
                                                     <p> {{ preparation.text_field }} </p>

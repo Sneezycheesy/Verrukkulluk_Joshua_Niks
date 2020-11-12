@@ -81,11 +81,11 @@ html, body {
     width: 25%;
 } */
 .detail-information-icons-row p {
-    font-size: 25px;
+    font-size: 1rem;
 }
 
 .detail-information-icons-row p img {
-    height: 2rem;
+    height: 1.5rem;
 }
 
 .dish-people img {
@@ -155,9 +155,17 @@ html, body {
     text-align: center;
 }
 
-.ingredient-image-column img, .preparation-image-column img, .comment-image-column img {
+.ingredient-image-column img, .comment-image-column img {
     width: 80%;
     height: 100%;
+}
+
+.preparation-row {
+    margin-bottom: 1vh;
+}
+
+.preparation-image-column img {
+    width: 45%;
 }
 
 .rated {

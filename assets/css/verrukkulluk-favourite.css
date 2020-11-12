@@ -86,17 +86,22 @@ html, body {
     margin: 0px;
 }
 
-.favourite-dish-amount-of-people-column {
-    padding: 0px;
-    width: 100%;
+.favourite-dish-information-row p {
+    font-size: 1rem;
 }
 
-.favourite-dish-price-column {
-    padding: 0px;
-    width: 100%;
+.favourite-dish-information-row p img {
+    height: 1.5rem;
+}
+
+.favourite-dish-amount-of-people-column img {
+    content: url("../images/amount-of-people.png");
+}
+
+.favourite-dish-price-column img {
+    content: url("../images/price.png");
 }
 
 .favourite-dish-calories-column {
-    padding: 0px;
-    width: 100%;
+    content: url("../images/calories.png");
 }

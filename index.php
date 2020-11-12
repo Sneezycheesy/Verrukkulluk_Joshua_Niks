@@ -138,10 +138,3 @@ $template = $twig->load($template);
 /// En tonen die handel!
 echo $template->render(["title" => $title, "data" => $data, "page_id" => $page_id, "user_id" => $user_id, "favourites" => $favourites]);
 
-echo "<pre>";
-echo "data:";
-var_dump($data);
-
-echo "favourites:";
-var_dump($favourites);
-

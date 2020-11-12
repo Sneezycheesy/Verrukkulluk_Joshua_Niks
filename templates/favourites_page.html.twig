@@ -50,23 +50,24 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="row favourite-dish-information-row">
-                                                        <div class="col-md-5 favourite-dish-button-column">
-                                                            <a href="?dish_id={{item[0].ID}}&action=detail"><button class="dish-button">SMULLEN</button></a>
+                                                    <div class="row dish-block-row">
+                                                        <div class="col-md-4">
+                                                            <a href="?dish_id={{ data[dish_id].ID }}&action=detail"><button class="dish-button">SMULLEN!</button></a>
                                                         </div>
-                                                        <div class="col-md-1"></div>
-                                                        <div class="col-md-2 favourite-dish-amount-of-people-column">
-                                                            <img src="#" /> {{ item[0].amount_of_people }}
+                                                        <div class="col-md-8">
+                                                            <div class="row dish-information-icons-row">
+                                                            <div class="col-md-4 dish-amount-of-people-image">
+                                                                <p><img src="#"/> {{ item[0].amount_of_people }}</p>
+                                                            </div>
+                                                            <div class="col-md-4 dish-price-column">
+                                                                <p><img src="#" />{{ item[0].price }}</p>
+                                                            </div>
+                                                            <div class="col-md-4 dish-calories-column">
+                                                                <p><img src="#" /> {{item[0].calories }}</p>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-2 favourite-dish-price-column">
-                                                            <img src="#" /> {{ item[0].price }}
-                                                        </div>
-                                                        <div class="col-md-2 favourite-dish-calories-column">
-                                                            <img src="#" /> {{ item[0].calories }}
                                                         </div>
                                                     </div>
-
-
                                                 </div>
                                                 {# END FAVOURITE DISPLAY #}
                                                 <div class="col-md-1"></div>

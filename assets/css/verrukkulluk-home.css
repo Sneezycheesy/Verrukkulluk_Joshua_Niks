@@ -82,6 +82,14 @@ html, body {
     padding: 0px;
 }
 
+.dish-information-icons-row p {
+    font-size: 1rem;
+}
+
+.dish-information-icons-row p img {
+    height: 1.5rem;
+}
+
 .dish-button {
     font-family: var(--heading);
     color: var(--white);
