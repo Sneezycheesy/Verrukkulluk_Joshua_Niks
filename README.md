@@ -32,4 +32,5 @@
   <li> HTML </li>
   <li> Twig </li>
   <li> Bootstrap </li>
+  <li> Ajax </li>
 </ul>
