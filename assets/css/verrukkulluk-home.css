@@ -137,3 +137,12 @@ html, body {
 .dish-block-deviding-row {
     height: 2vh;
 }
+
+.page-item.active .page-link {
+    background-color: var(--darker-green);
+    border-color: var(--darker-green);
+}
+
+.page-link, .page-link:hover {
+    color: var(--darker-green);
+}
