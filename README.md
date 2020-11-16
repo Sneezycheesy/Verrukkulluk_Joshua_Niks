@@ -20,8 +20,8 @@
     </li>
     <li> Het toevoegen/verwijderen van gerechten aan uw boodschappenlijst </li>
     <li> Gerechten toevoegen aan uw favorieten </li>
+    <li> Gerechten verwijderen uit uw favorieten </li>
     <li> Een gerecht beoordelen </li>
-    <li> Een reactie/commentaar bij een gerecht plaatsen </li>
     <li> Gerechten zoeken </li>
   </ul>
 </p>
