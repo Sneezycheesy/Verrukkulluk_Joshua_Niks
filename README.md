@@ -1,4 +1,4 @@
-<img src="./assets/img/verrukkulluk-logo.png" style="height: 100px"/>
+<a href="#"><img src="./assets/img/verrukkulluk-logo.png" style="height: 100px"/></a>
 <h1> Verrukkulluk</h1>
 
 <h4> Beschrijving </h4>
@@ -10,7 +10,7 @@
     <li> Inzien van gerechten en hun bijbehorende informatie:
       <ul>
         <li> Calorieën </li>
-        <li> Aantal personen </li>
+        <li> Aantal personen (per maaltijd) </li>
         <li> Prijs </li>
         <li> Ingrediënten </li>
         <li> Bereidingswijze </li>
