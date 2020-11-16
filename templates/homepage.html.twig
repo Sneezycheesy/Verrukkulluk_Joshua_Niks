@@ -55,13 +55,13 @@
                     <div class="col-md-8">
                         <div class="row dish-information-icons-row">
                         <div class="col-md-4 dish-amount-of-people-image">
-                            <p><img src="#"/> {{ data[dish_id].amount_of_people }}</p>
+                            <p><img src="./assets/images/amount-of-people.png"/> {{ data[dish_id].amount_of_people }}</p>
                         </div>
                         <div class="col-md-4 dish-price-column">
-                            <p><img src="#" />{{ data[dish_id].price }}</p>
+                            <p><img src="./assets/images/price.png" />{{ data[dish_id].price }}</p>
                         </div>
                         <div class="col-md-4 dish-calories-column">
-                            <p><img src="#" /> {{data[dish_id].calories }}</p>
+                            <p><img src="./assets/images/calories.png" /> {{data[dish_id].calories }}</p>
                         </div>
                     </div>
                     </div>
@@ -95,8 +95,8 @@
 		</div>
 	</div>
     {% else %}
-            <h1>Sorry, geen data gevonden.</h1>
-        {% endif %}
+        <h1>Sorry, geen data gevonden.</h1>
+    {% endif %}
     {# END CONTENT #}
 </div>
 {% endblock %}

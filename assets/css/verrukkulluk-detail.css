@@ -178,7 +178,7 @@ html, body {
 
 .favourite-no {
     max-width: 100%;
-    content: url("../images/favourite-no.png");
+    content: url("../images/favourite-no.png"); 
 }
 
 .favourite-button-column img {
