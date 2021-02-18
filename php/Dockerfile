@@ -11,4 +11,4 @@ RUN docker-php-ext-install mysqli
 ADD ./verrukkulluk /var/www/html
 
 # Launch pph
-CMD php index.php
+RUN php index.php
